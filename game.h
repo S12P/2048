@@ -9,10 +9,11 @@
 #include <QObject>
 #include <QDebug>
 #include <QVector>
-#include <stdlib.h>
-#include <time.h>
 #include <QStringList>
 #include <QList>
+
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ class Game {//: public QObject {
 public:
     //explicit Game(QObject *parent = 0);
     Game();
-    //~Game(); // destructeur
+    ~Game(); // destructeur
     int random(); // nombre aléatoire
     void newgame(); // nouvelle partie
     void save(); // sauvegarder données

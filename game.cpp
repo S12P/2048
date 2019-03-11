@@ -10,16 +10,20 @@ Game::Game(){
 
 }
 
+Game::~Game(){
+    save();
+}
 
 
 int Game::random(){
-    //TODO
-    return 0;
+    int nb = 0;
+    nb = rand()%5;
+    return nb;
 }
 
 void Game::newgame(){
     int score = 0;
-            // TODO
+    Game();
 }
 
 void Game::save(){
