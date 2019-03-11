@@ -1,12 +1,9 @@
 #include "game.h"
 
 Game::Game(){
-    score = 0;
-    best = 0;
-    for (int i = 0; i < 16; i++){
-        list[i] = 0;
-    }
+    load();
     win = true;
+    // TODO
 
 }
 
@@ -29,6 +26,8 @@ void Game::newgame(){
 void Game::save(){
     string esp = " ";
     ofstream fichier2("data/.data.txt", ios::out | ios::trunc);
+
+    if (end) {score = 0;}
 
     if(!fichier2) {EXIT_FAILURE;}
     fichier2 << score << esp << best << endl;

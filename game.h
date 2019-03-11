@@ -35,6 +35,7 @@ private:
     int score; // score actuel
     int best; // meilleur score
     bool win; // gagnant ?
+    bool end; // fin partie ?
     int list[16]; // liste des valeurs des 16 cases
 
 
