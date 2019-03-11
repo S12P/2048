@@ -1,6 +1,12 @@
 #include "game.h"
 
 Game::Game(){
+    /*******************************************************************************
+     *
+     *  Fonction qui permet de jouer
+     *
+     *
+     * *****************************************************************************/
     load();
     win = true;
     // TODO
@@ -8,22 +14,45 @@ Game::Game(){
 }
 
 Game::~Game(){
+    /*******************************************************************************
+     *
+     *  Destructeur, on sauvegarde
+     *
+     *
+     * *****************************************************************************/
     save();
+    // TODO
 }
 
 
 int Game::random(){
+    /*******************************************************************************
+     *
+     *  permet de générer un nombre aléatoire entre 0 inclus et 4 exclus
+     *
+     * *****************************************************************************/
     int nb = 0;
-    nb = rand()%5;
+    nb = rand()%4;
     return nb;
 }
 
 void Game::newgame(){
+    /*******************************************************************************
+     *
+     *  newgame lance une nouvelle partie
+     *
+     *
+     * *****************************************************************************/
     int score = 0;
     Game();
 }
 
 void Game::save(){
+    /*******************************************************************************
+     *
+     *  save permet de charger les résultats et la partie en cours.
+     *
+     * *****************************************************************************/
     string esp = " ";
     ofstream fichier2("data/.data.txt", ios::out | ios::trunc);
 
@@ -39,6 +68,15 @@ void Game::save(){
 }
 
 void Game::load(){
+    /*******************************************************************************
+     *
+     *  load permet de charger les anciens résultats et l'ancienne partie
+     *
+     *  si il y en avait une en cours. Si le fichier .data n'existe pas on le crée
+     *
+     * *****************************************************************************/
+
+
     string esp = " ";
     ifstream fichier("data/.data.txt", ios::in);  // fichier cacher
 
