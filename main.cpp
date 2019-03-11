@@ -1,5 +1,6 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
+#include "game.h"
+
+
 
 int main(int argc, char *argv[])
 {
@@ -12,5 +13,17 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return -1;
 
+    /*******
+     * test
+     * ****/
+
+    Game g;
+    g.afficher_score();
+
+    g.afficher_data();
+    //QString CurrentDir =  QCoreApplication::applicationDirPath();
+    //cout <<  CurrentDir.toStdString();
     return app.exec();
 }
+
+

@@ -25,15 +25,15 @@ Game::~Game(){
 }
 
 
-int Game::random(){
+int Game::random(vector<int> v){
     /*******************************************************************************
      *
-     *  permet de générer un nombre aléatoire entre 0 inclus et 4 exclus
+     *  permet de générer un nombre aléatoire entre 0 inclus et 16 exclus
      *
      * *****************************************************************************/
-    int nb = 0;
-    nb = rand()%4;
-    return nb;
+    int len = v.size();
+    int nb = rand()%len;
+    return v[nb];
 }
 
 void Game::newgame(){
@@ -54,7 +54,7 @@ void Game::save(){
      *
      * *****************************************************************************/
     string esp = " ";
-    ofstream fichier2("data/.data.txt", ios::out | ios::trunc);
+    ofstream fichier2(path + "data/.data.txt", ios::out | ios::trunc);
 
     if (end) {score = 0;}
 
@@ -76,24 +76,21 @@ void Game::load(){
      *
      * *****************************************************************************/
 
-
     string esp = " ";
-    ifstream fichier("data/.data.txt", ios::in);  // fichier cacher
-
+    ifstream fichier(path + "data/.data.txt", ios::in);  // fichier cacher
+    cout << path + "data/.data.txt";
     if(fichier) { // si l'ouverture a réussi
-        string ligne;
-        while(getline(fichier, ligne))  {
-
-            fichier >> score >> best;
-            for (int i = 0; i< 16; i++){
-                fichier >> list[i];
-            }
+        fichier >> score >> best;
+        for (int i = 0; i< 16; i++){
+            fichier >> list[i];
         }
 
         fichier.close();
     }
     else {
-        ofstream fichier2("data/.data.txt", ios::out | ios::trunc);
+
+
+        ofstream fichier2(path + "data/.data.txt", ios::out | ios::trunc);
 
         if(!fichier2) {EXIT_FAILURE;}
         string init = "0 0\n";
@@ -101,5 +98,34 @@ void Game::load(){
         fichier2 << init << init2;
         fichier2.close();
 
+    }
+}
+
+void Game::add_score(int a){
+    score += a;
+}
+
+int Game::power(int n){
+    return 2 << (n-1);
+}
+
+int Game::empty_case(){
+    vector<int> v;
+    for (int i = 0; i < 16; i++){
+        if (list[i] == 0){
+            v.push_back(i);
+        }
+    }
+    return random(v);
+}
+
+int Game::afficher_score(){
+    cout << score << endl;
+}
+
+void Game::afficher_data(){
+    cout << score << " " << best << endl;
+    for (int i = 0; i < 16; i++){
+        cout << list[i] << endl;
     }
 }
