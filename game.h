@@ -21,6 +21,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QApplicationStateChangeEvent>
+#include <QFileDialog>
 
 
 
@@ -53,7 +54,7 @@ private:
     bool end; // fin partie ?
     int list[16]; // liste des valeurs des 16 cases
     fstream data;
-    string path = "../../../../2048/"; // TODO a tester sur linux et windows
+    string path = "data.txt";
 
 
 };

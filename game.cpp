@@ -54,7 +54,7 @@ void Game::save(){
      *
      * *****************************************************************************/
     string esp = " ";
-    ofstream fichier2(path + "data/.data.txt", ios::out | ios::trunc);
+    ofstream fichier2(path, ios::out | ios::trunc);
 
     if (end) {score = 0;}
 
@@ -77,8 +77,7 @@ void Game::load(){
      * *****************************************************************************/
 
     string esp = " ";
-    ifstream fichier(path + "data/.data.txt", ios::in);  // fichier cacher
-    cout << path + "data/.data.txt";
+    ifstream fichier(path, ios::in);  // fichier cacher
     if(fichier) { // si l'ouverture a réussi
         fichier >> score >> best;
         for (int i = 0; i< 16; i++){
@@ -90,7 +89,7 @@ void Game::load(){
     else {
 
 
-        ofstream fichier2(path + "data/.data.txt", ios::out | ios::trunc);
+        ofstream fichier2(path, ios::out | ios::trunc);
 
         if(!fichier2) {EXIT_FAILURE;}
         string init = "0 0\n";

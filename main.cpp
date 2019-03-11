@@ -22,7 +22,9 @@ int main(int argc, char *argv[])
 
     g.afficher_data();
     //QString CurrentDir =  QCoreApplication::applicationDirPath();
-    //cout <<  CurrentDir.toStdString();
+    //cout <<  "yo "<< QFileDialog::directory().toStdString();
+             //.toStdString();
+
     return app.exec();
 }
 
