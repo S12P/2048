@@ -20,7 +20,6 @@ ApplicationWindow {
                 title: qsTr("&Fichier")
                 Action { text: qsTr("&Nouveau...") }
                 Action { text: qsTr("&Sauvegarder") }
-                Action { text: qsTr("Sauvegarder sous...") }
                 MenuSeparator { }
                 Action { text: qsTr("&Quitter") }
             }
