@@ -1,13 +1,13 @@
 import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.3
 
 ApplicationWindow {
     id: window
     visible: true
     width: 640
     height: 480
-    title: qsTr("Stack")
-
+    title: qsTr("2048")
+    /*
     header: ToolBar {
         contentHeight: toolButton.implicitHeight
 
@@ -28,7 +28,24 @@ ApplicationWindow {
             text: stackView.currentItem.title
             anchors.centerIn: parent
         }
-    }
+
+
+    }*/
+
+    menuBar: MenuBar {
+            Menu {
+                title: qsTr("&Fichier")
+                Action { text: qsTr("&Nouveau...") }
+                Action { text: qsTr("&Sauvegarder") }
+                Action { text: qsTr("Sauvegarder sous...") }
+                MenuSeparator { }
+                Action { text: qsTr("&Quitter") }
+            }
+            Menu {
+                title: qsTr("&Aide")
+                Action { text: qsTr("&A propos") }
+            }
+        }
 
     Drawer {
         id: drawer
@@ -61,5 +78,9 @@ ApplicationWindow {
         id: stackView
         initialItem: "HomeForm.ui.qml"
         anchors.fill: parent
+    }
+
+    footer: TabBar {
+
     }
 }
