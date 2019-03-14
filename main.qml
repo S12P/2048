@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.3
+import MyControls 3.14
 
 ApplicationWindow {
     id: window
@@ -12,20 +13,34 @@ ApplicationWindow {
     property int numberOfRows: 4
     property int largeur: width
     property int hauteur: height
-    property var numberOfScore: 2 // a changer
-    property var numberOfBest: 2 // a changer
+    property var numberOfScore: game.give_score() // a changer
+    property var numberOfBest: game.give_best() // a changer
+
+    Game {id : game}
 
     menuBar: MenuBar {
             Menu {
                 title: qsTr("&Fichier")
-                Action { text: qsTr("&Nouveau...") }
-                Action { text: qsTr("&Sauvegarder") }
+                MenuItem {
+                    text: qsTr("Nouveau")
+                    //onTriggered:
+                }
+                MenuItem {
+                    text: qsTr("Sauvegarder")
+                    //onTriggered:
+                }
                 MenuSeparator { }
-                Action { text: qsTr("&Quitter") }
+                MenuItem {
+                    text: qsTr("Quitter")
+                    onTriggered: Qt.quit();
+                }
             }
             Menu {
                 title: qsTr("&Aide")
-                Action { text: qsTr("&A propos") }
+                MenuItem {
+                    text: qsTr("A propos")
+                   // onTriggered:
+                }
             }
         }
 

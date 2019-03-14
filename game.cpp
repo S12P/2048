@@ -1,6 +1,23 @@
 #include "game.h"
 
-Game::Game(){
+void Game::declareQML() {
+    qmlRegisterType<Game>("MyControls", 3, 14, "Game");
+}
+
+
+
+qint64 Game::give_score(){
+    qint64 n = score;
+    return n;
+}
+
+qint64 Game::give_best(){
+    qint64 n = best;
+    return n;
+}
+
+
+Game::Game() : QObject () {
     /*******************************************************************************
      *
      *  Fonction qui permet de jouer

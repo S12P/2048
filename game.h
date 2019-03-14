@@ -10,6 +10,7 @@
 
 
 #include <QObject>
+#include <QString>
 #include <QDebug>
 #include <QVector>
 #include <QStringList>
@@ -22,6 +23,9 @@
 #include <QQmlApplicationEngine>
 #include <QApplicationStateChangeEvent>
 #include <QFileDialog>
+#include <QtQml>
+#include <QApplication>
+#include <QtGlobal>
 
 
 
@@ -29,12 +33,18 @@
 using namespace std;
 
 
-class Game {//: public QObject {
-    //Q_OBJECT
+
+
+class Game : public QObject {
+            Q_OBJECT
+
+
 public:
-    //explicit Game(QObject *parent = 0);
+    Q_INVOKABLE qint64 give_score();
+    Q_INVOKABLE qint64 give_best();
+    static void declareQML();
     Game();
-    ~Game(); // destructeur
+   ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
     void newgame(); // nouvelle partie
     void save(); // sauvegarder données
@@ -45,7 +55,6 @@ public:
     int afficher_score();
     void afficher_data();
 
-
 private:
 
     int score; // score actuel
@@ -55,6 +64,7 @@ private:
     int list[16]; // liste des valeurs des 16 cases
     fstream data;
     string path = "data.txt";
+            QString m_userName;
 
 
 };
