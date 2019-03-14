@@ -16,6 +16,11 @@ qint64 Game::give_best(){
     return n;
 }
 
+void Game::actualize(){
+    give_best();
+    give_score();
+}
+
 
 Game::Game() : QObject () {
     /*******************************************************************************
@@ -93,7 +98,6 @@ void Game::load(){
      *  si il y en avait une en cours. Si le fichier .data n'existe pas on le crée
      *
      * *****************************************************************************/
-
     string esp = " ";
     ifstream fichier(path, ios::in);  // fichier cacher
     if(fichier) { // si l'ouverture a réussi
@@ -116,6 +120,8 @@ void Game::load(){
         fichier2.close();
 
     }
+    actualize();
+
 }
 
 void Game::add_score(int a){

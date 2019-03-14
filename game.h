@@ -54,17 +54,17 @@ public:
     int empty_case();
     int afficher_score();
     void afficher_data();
+    void actualize();
 
 private:
 
-    int score; // score actuel
-    int best; // meilleur score
-    bool win; // gagnant ?
-    bool end; // fin partie ?
-    int list[16]; // liste des valeurs des 16 cases
+    int score = 0; // score actuel
+    int best = 0; // meilleur score
+    bool win = true; // gagnant ?
+    bool end = false; // fin partie ?
+    QList<int> list = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
     fstream data;
     string path = "data.txt";
-            QString m_userName;
 
 
 };
