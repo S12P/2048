@@ -36,15 +36,15 @@ using namespace std;
 
 
 class Game : public QObject {
-            Q_OBJECT
 
+    Q_OBJECT
 
 public:
     Q_INVOKABLE qint64 give_score();
     Q_INVOKABLE qint64 give_best();
     static void declareQML();
     Game();
-   ~Game(); // destructeur
+    ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
     void newgame(); // nouvelle partie
     void save(); // sauvegarder données
@@ -52,9 +52,17 @@ public:
     void add_score(int a); //augmente le score
     int power(int n); // calcule puissance de deux
     int empty_case();
-    int afficher_score();
+    void afficher_score();
     void afficher_data();
     void actualize();
+    void right_mvt();
+    void left_mvt();
+    void top_mvt();
+    void low_mvt();
+    void verify_right_mvt();
+    void verify_left_mvt();
+    void verify_top_mvt();
+    void verify_low_mvt();
 
 private:
 
@@ -63,6 +71,14 @@ private:
     bool win = true; // gagnant ?
     bool end = false; // fin partie ?
     QList<int> list = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
+    bool l_right[4] = {false, false, false, false};
+    bool l_left[4] = {false, false, false, false};
+    bool l_top[4] = {false, false, false, false};
+    bool l_low[4] = {false, false, false, false};
+    bool l_right2[4] = {false, false, false, false};
+    bool l_left2[4] = {false, false, false, false};
+    bool l_top2[4] = {false, false, false, false};
+    bool l_low2[4] = {false, false, false, false};
     fstream data;
     string path = "data.txt";
 

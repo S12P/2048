@@ -19,30 +19,30 @@ ApplicationWindow {
     Game {id : game}
 
     menuBar: MenuBar {
-            Menu {
-                title: qsTr("&Fichier")
-                MenuItem {
-                    text: qsTr("Nouveau")
-                    //onTriggered:
-                }
-                MenuItem {
-                    text: qsTr("Sauvegarder")
-                    //onTriggered:
-                }
-                MenuSeparator { }
-                MenuItem {
-                    text: qsTr("Quitter")
-                    onTriggered: Qt.quit();
-                }
+        Menu {
+            title: qsTr("&Fichier")
+            MenuItem {
+                text: qsTr("Nouveau")
+                //onTriggered:
             }
-            Menu {
-                title: qsTr("&Aide")
-                MenuItem {
-                    text: qsTr("A propos")
-                   // onTriggered:
-                }
+            MenuItem {
+                text: qsTr("Sauvegarder")
+                //onTriggered:
+            }
+            MenuSeparator { }
+            MenuItem {
+                text: qsTr("Quitter")
+                onTriggered: Qt.quit();
             }
         }
+        Menu {
+            title: qsTr("&Aide")
+            MenuItem {
+                text: qsTr("A propos")
+                // onTriggered:
+            }
+        }
+    }
 
 
     StackView {

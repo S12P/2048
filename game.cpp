@@ -142,7 +142,7 @@ int Game::empty_case(){
     return random(v);
 }
 
-int Game::afficher_score(){
+void Game::afficher_score(){
     cout << score << endl;
 }
 
@@ -150,5 +150,159 @@ void Game::afficher_data(){
     cout << score << " " << best << endl;
     for (int i = 0; i < 16; i++){
         cout << list[i] << endl;
+    }
+}
+
+
+
+void Game::verify_right_mvt(){
+    int n;
+    for (int i = 0; i < 4; i++){
+        bool first = true;
+        for (int j = 0; j < 4; j++){
+            n = j + 4 * i;
+            if (first){
+                if (list[n] == 0){
+                    first = false;
+                }
+            }
+            else{
+                if (list[n] == 0){
+                    l_right[i] = true;
+                }
+            }
+            if (j != 3){
+                if (list[n] == list[n+1]){
+                    l_right2[i] = true;
+                }
+            }
+        }
+    }
+}
+
+void Game::verify_left_mvt(){
+    int n;
+    for (int i = 3; i >= 0; i--){
+        bool first = true;
+        for (int j = 3; j >= 0; j--){
+            n = j + 4 * i;
+            if (first){
+                if (list[n] == 0){
+                    first = false;
+                }
+            }
+            else{
+                if (list[n] == 0){
+                    l_left[i] = true;
+                }
+            }
+            if (j != 0){
+                if (list[n] == list[n-1]){
+                    l_left2[i] = true;
+                }
+            }
+        }
+    }
+}
+
+void Game::verify_low_mvt(){
+    int n;
+    for (int i = 0; i < 4; i--){
+        bool first = true;
+        for (int j = 0; j < 4; j--){
+            n = i + 4 * j;
+            if (first){
+                if (list[n] == 0){
+                    first = false;
+                }
+            }
+            else{
+                if (list[n] == 0){
+                    l_low[i] = true;
+                }
+            }
+            if (list[i] != 0){
+                if (list[n] == list[i + 4 * (j - 1)]){
+                    l_low2[i] = true;
+                }
+            }
+        }
+    }
+}
+
+void Game::verify_top_mvt(){
+    int n;
+    for (int i = 3; i >= 0; i--){
+        bool first = true;
+        for (int j = 3; j >= 0; j--){
+            n = i + 4 * j;
+            if (first){
+                if (list[n] == 0){
+                    first = false;
+                }
+            }
+            else{
+                if (list[n] == 0){
+                    l_top[i] = true;
+                }
+            }
+            if (list[i] != 3){
+                if (list[n] == list[i + 4 * (j + 1)]){
+                    l_top2[i] = true;
+                }
+            }
+        }
+    }
+}
+
+void Game::right_mvt(){
+    verify_right_mvt();
+    bool l1p = l_right[0];
+    bool l2p = l_right[1];
+    bool l3p = l_right[2];
+    bool l4p = l_right[3];
+    bool l1n = l_right2[0];
+    bool l2n = l_right2[1];
+    bool l3n = l_right2[2];
+    bool l4n = l_right2[3];
+    if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
+        //TODO
+    }
+}
+
+void Game::left_mvt(){
+    verify_left_mvt();
+    bool l1p = l_left[0];
+    bool l2p = l_left[1];
+    bool l3p = l_left[2];
+    bool l4p = l_left[3];
+    bool l1n = l_left2[0];
+    bool l2n = l_left2[1];
+    bool l3n = l_left2[2];
+    bool l4n = l_left2[3];
+    if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
+        //TODO
+    }
+}
+
+void Game::top_mvt(){
+    verify_top_mvt();
+    bool l1 = l_top[0];
+    bool l2 = l_top[1];
+    bool l3 = l_top[2];
+    bool l4 = l_top[3];
+    if (l1 || l2 || l3 || l4){
+        //TODO
+    }
+}
+
+void Game::low_mvt(){
+    verify_low_mvt();
+    bool l1 = l_low[0];
+    bool l2 = l_low[1];
+    bool l3 = l_low[2];
+    bool l4 = l_low[3];
+    if (l1 || l2 || l3 || l4){
+        //TODO
     }
 }
