@@ -28,6 +28,7 @@ Game::Game() : QObject () {
     win = true;
     // TODO
 
+
 }
 
 Game::~Game(){
