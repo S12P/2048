@@ -1,6 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.3
-import MyControls 3.14
+//import MyControls 3.14
 
 ApplicationWindow {
     id: window
@@ -13,21 +13,21 @@ ApplicationWindow {
     property int numberOfRows: 4
     property int largeur: width
     property int hauteur: height
-    property var numberOfScore: game.give_score() // a changer
-    property var numberOfBest: game.give_best() // a changer
+    property var numberOfScore: game.score // a changer
+    property var numberOfBest: game.best // a changer
+    property var list: game.list
 
-    Game {id : game}
 
     menuBar: MenuBar {
         Menu {
             title: qsTr("&Fichier")
             MenuItem {
                 text: qsTr("Nouveau")
-                //onTriggered:
+                onClicked:game.newgame();
             }
             MenuItem {
                 text: qsTr("Sauvegarder")
-                //onTriggered:
+                onClicked:game.save();
             }
             MenuSeparator { }
             MenuItem {

@@ -1,8 +1,8 @@
 #include "game.h"
 
-void Game::declareQML() {
-    qmlRegisterType<Game>("MyControls", 3, 14, "Game");
-}
+//void Game::declareQML() {
+//    qmlRegisterType<Game>("MyControls", 3, 14, "Game");
+//}
 
 
 
@@ -31,8 +31,11 @@ Game::Game() : QObject () {
      * *****************************************************************************/
     load();
     win = true;
-    // TODO
-
+    int x1 = random_init();
+    int x2 = random_init();
+    list[x1] = 2;
+    list[x2] = 2;
+    update();
 
 }
 
@@ -45,6 +48,16 @@ Game::~Game(){
      * *****************************************************************************/
     save();
     // TODO
+}
+
+int Game::random_init(){
+    /*******************************************************************************
+     *
+     *  permet de générer un nombre aléatoire entre 0 inclus et 16 exclus
+     *
+     * *****************************************************************************/
+    int nb = rand()%16;
+    return nb;
 }
 
 
@@ -66,7 +79,8 @@ void Game::newgame(){
      *
      *
      * *****************************************************************************/
-    int score = 0;
+    score = 0;
+    update();
     Game();
 }
 
@@ -156,6 +170,10 @@ void Game::afficher_data(){
 
 
 void Game::verify_right_mvt(){
+    /**************************************
+     * On verifie si il y a des 0 pour pouvoir deplacer sur la droite
+     *  ou si deux cases sont les memes
+     * **************************************/
     int n;
     for (int i = 0; i < 4; i++){
         bool first = true;

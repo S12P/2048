@@ -7,13 +7,14 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
-    Game::declareQML();
     QQmlApplicationEngine engine;
+
+    Game game;
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
-    Game game;
-    game.load();
+    engine.rootContext()->setContextProperty("game", &game);
     game.afficher_data();
 
     return app.exec();

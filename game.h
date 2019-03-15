@@ -40,14 +40,22 @@ class Game : public QObject {
     Q_OBJECT
 
 public:
-    Q_INVOKABLE qint64 give_score();
-    Q_INVOKABLE qint64 give_best();
-    static void declareQML();
+    Q_PROPERTY(QList<int> list READ getList NOTIFY update)
+    Q_PROPERTY(qint64 score READ give_score NOTIFY update)
+    Q_PROPERTY(qint64 best READ give_best NOTIFY update)
+    qint64 give_best();
+    qint64 give_score();
+    QList<int> getList() const {return list;}
+    //Q_INVOKABLE qint64 give_score();
+    //Q_INVOKABLE qint64 give_best();
+    Q_INVOKABLE void save();
+    Q_INVOKABLE void newgame();
+    //static void declareQML();
     Game();
     ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
-    void newgame(); // nouvelle partie
-    void save(); // sauvegarder données
+    //void newgame(); // nouvelle partie
+    //void save(); // sauvegarder données
     void load(); // recuperer données
     void add_score(int a); //augmente le score
     int power(int n); // calcule puissance de deux
@@ -63,6 +71,10 @@ public:
     void verify_left_mvt();
     void verify_top_mvt();
     void verify_low_mvt();
+    int random_init();
+
+signals:
+    void update();
 
 private:
 
