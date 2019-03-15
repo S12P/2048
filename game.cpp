@@ -307,6 +307,7 @@ void Game::shift_right(int a){
     for (int i = b; i > a; i--){
         if (list[i] == list[i-1]){
             list[i] *= 2;
+            add_score(list[i]);
             list[i-1] = 0;
         }
     }
@@ -347,6 +348,7 @@ void Game::shift_left(int a){
     for (int i = a; i < b; i++){
         if (list[i] == list[i+1]){
             list[i] *= 2;
+            add_score(list[i]);
             list[i+1] = 0;
         }
     }
@@ -392,6 +394,7 @@ void Game::shift_low(int a){
         int im = a + (n - 1)*4;
         if (list[i] == list[im]){
             list[i] *= 2;
+            add_score(list[i]);
             list[im] = 0;
         }
     }
@@ -438,6 +441,7 @@ void Game::shift_top(int a){
         int ip = a + (n + 1) * 4;
         if (list[i] == list[ip]){
             list[i] *= 2;
+            add_score(list[i]);
             list[ip] = 0;
         }
     }
@@ -463,37 +467,81 @@ void Game::shift_top(int a){
 
 // on decale les 0 et apres on verifie si 2 cases sont pareilles
 void Game::right_mvt(){
+    bool l1p = l_right[0];
+    bool l2p = l_right[1];
+    bool l3p = l_right[2];
+    bool l4p = l_right[3];
+    bool l1n = l_right2[0];
+    bool l2n = l_right2[1];
+    bool l3n = l_right2[2];
+    bool l4n = l_right2[3];
     verify_right_mvt();
     shift_right(0);
     shift_right(4);
     shift_right(8);
     shift_right(12);
-    update();
+    if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
+        list[empty_case()] = 2;
+        update();
+    }
 }
 
 void Game::left_mvt(){
     verify_left_mvt();
+    bool l1p = l_left[0];
+    bool l2p = l_left[1];
+    bool l3p = l_left[2];
+    bool l4p = l_left[3];
+    bool l1n = l_left2[0];
+    bool l2n = l_left2[1];
+    bool l3n = l_left2[2];
+    bool l4n = l_left2[3];
     shift_left(0);
     shift_left(4);
     shift_left(8);
     shift_left(12);
-    update();
+    if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
+        list[empty_case()] = 2;
+        update();
+    }
 }
 
 void Game::top_mvt(){
     verify_top_mvt();
+    bool l1p = l_top[0];
+    bool l2p = l_top[1];
+    bool l3p = l_top[2];
+    bool l4p = l_top[3];
+    bool l1n = l_top2[0];
+    bool l2n = l_top2[1];
+    bool l3n = l_top2[2];
+    bool l4n = l_top2[3];
     shift_top(0);
     shift_top(1);
     shift_top(2);
     shift_top(3);
-    update();
+    if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
+        list[empty_case()] = 2;
+        update();
+    }
 }
 
 void Game::low_mvt(){
     verify_low_mvt();
+    bool l1p = l_low[0];
+    bool l2p = l_low[1];
+    bool l3p = l_low[2];
+    bool l4p = l_low[3];
+    bool l1n = l_low2[0];
+    bool l2n = l_low2[1];
+    bool l3n = l_low2[2];
+    bool l4n = l_low2[3];
     shift_low(0);
     shift_low(1);
     shift_low(2);
     shift_low(3);
-    update();
+    if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
+        list[empty_case()] = 2;
+        update();
+    }
 }
