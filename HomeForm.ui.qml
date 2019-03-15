@@ -120,13 +120,117 @@ Rectangle {
             columns: numberOfRows
             spacing: 10
 
-            Repeater { model: 24
-                Rectangle { width: 70; height: 70
-                    color: "burlywood"
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
 
-                    Text { text: "0"
-                        font.pointSize: 30
-                        anchors.centerIn: parent } }
+                Text { text: l0
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l1
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l2
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l3
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l4
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l5
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l6
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l7
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l8
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l9
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l10
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l11
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l12
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l13
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l14
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
+            }
+            Rectangle { width: 70; height: 70
+                color: "burlywood"
+
+                Text { text: l15
+                    font.pointSize: 30
+                    anchors.centerIn: parent }
             }
         }
     }

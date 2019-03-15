@@ -11,6 +11,8 @@ qint64 Game::give_score(){
     return n;
 }
 
+
+
 qint64 Game::give_best(){
     qint64 n = best;
     return n;
