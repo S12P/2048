@@ -98,7 +98,6 @@ Rectangle {
             text: qsTr("New game")
             anchors.horizontalCenter: parent.horizontalCenter
             focusPolicy: Qt.TabFocus
-            //onClicked:game.newgame();
         }
     }
 

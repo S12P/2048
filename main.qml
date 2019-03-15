@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.3
+import QtGraphicalEffects 1.0
 //import MyControls 3.14
 
 ApplicationWindow {
@@ -9,6 +10,7 @@ ApplicationWindow {
     height: 800
     title: qsTr("2048")
     color: "#a9a9a9"
+    onActiveFocusItemChanged: console.log(activeFocusItem)
 
     property int numberOfRows: 4
     property int largeur: width
@@ -64,8 +66,29 @@ ApplicationWindow {
         id: stackView
         initialItem: "HomeForm.ui.qml"
         anchors.fill: parent
+        focus: true
+
+        Keys.onPressed: {
+            switch (event.key) {
+            case Qt.Key_Right:
+                console.log("KeyRight pressed");
+                game.right_mvt();
+                break;
+            case Qt.Key_Left:
+                console.log("KeyLeft pressed");
+                game.left_mvt();
+                break;
+            case Qt.Key_Up:
+                console.log("KeyUp pressed");
+                game.top_mvt();
+                break;
+            case Qt.Key_Down:
+                console.log("KeyDown pressed");
+                game.down_mvt();
+                break;
+            }
+        }
 
 
     }
-
 }

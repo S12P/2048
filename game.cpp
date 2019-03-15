@@ -320,6 +320,7 @@ void Game::shift_right(int a){
 
 // on decale les 0 et apres on verifie si 2 cases sont pareilles
 void Game::right_mvt(){
+    cout << "wesh" << endl;
     verify_right_mvt();
     bool l1p = l_right[0];
     bool l2p = l_right[1];
@@ -343,6 +344,7 @@ void Game::right_mvt(){
             shift_right(12);
         }
     }
+    update();
 }
 
 void Game::left_mvt(){

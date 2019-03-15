@@ -44,6 +44,14 @@ public:
     Q_PROPERTY(qint64 score READ give_score NOTIFY update)
     Q_PROPERTY(qint64 best READ give_best NOTIFY update)
     Q_PROPERTY(QList<string> yo READ give_yo NOTIFY update)
+
+
+    Q_INVOKABLE void right_mvt();
+    Q_INVOKABLE void left_mvt();
+    Q_INVOKABLE void top_mvt();
+    Q_INVOKABLE void low_mvt();
+
+
     qint64 give_best();
     qint64 give_score();
     QList<string> give_yo() const {return yo;}
@@ -65,10 +73,10 @@ public:
     void afficher_score();
     void afficher_data();
     void actualize();
-    void right_mvt();
-    void left_mvt();
-    void top_mvt();
-    void low_mvt();
+    //void right_mvt();
+    //void left_mvt();
+    //void top_mvt();
+    //void low_mvt();
     void verify_right_mvt();
     void verify_left_mvt();
     void verify_top_mvt();
