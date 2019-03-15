@@ -275,6 +275,50 @@ void Game::verify_top_mvt(){
     }
 }
 
+void Game::shift_right(int a){
+    int b = a + 3;
+    for (int i = b; i >= a; i--){
+        if (list[i] != 0){
+            int k = i;
+            while(k < b){
+                if (list[k+1] == 0){
+                    list[k+1] = list[k];
+                    list[k] = 0;
+                    k += 1;
+                }
+                else{
+                    //k+=1; // a changer
+                    break;
+                }
+            }
+        }
+    }
+    for (int i = b; i > a; i--){
+        if (list[i] == list[i-1]){
+            list[i] *= 2;
+            list[i-1] = 0;
+        }
+    }
+    for (int i = b; i >= a; i--){
+        if (list[i] != 0){
+            int k = i;
+            while(k < b){
+                if (list[k+1] == 0){
+                    list[k+1] = list[k];
+                    list[k] = 0;
+                    k += 1;
+                }
+                else{
+                    //k+=1; // a changer
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+// on decale les 0 et apres on verifie si 2 cases sont pareilles
 void Game::right_mvt(){
     verify_right_mvt();
     bool l1p = l_right[0];
@@ -286,7 +330,18 @@ void Game::right_mvt(){
     bool l3n = l_right2[2];
     bool l4n = l_right2[3];
     if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
-        //TODO
+        if (l1p || l1n){
+            shift_right(0);
+        }
+        if (l2p || l2n){
+            shift_right(4);
+        }
+        if (l3p || l3n){
+            shift_right(8);
+        }
+        if (l4p || l4n){
+            shift_right(12);
+        }
     }
 }
 

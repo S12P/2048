@@ -74,6 +74,7 @@ public:
     void verify_top_mvt();
     void verify_low_mvt();
     int random_init();
+    void shift_right(int a);
 
 signals:
     void update();
