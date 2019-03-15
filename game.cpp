@@ -164,8 +164,11 @@ void Game::afficher_score(){
 
 void Game::afficher_data(){
     cout << score << " " << best << endl;
-    for (int i = 0; i < 16; i++){
-        cout << list[i] << endl;
+    for (int i = 0; i < 4; i++){
+        for (int j = 0; j < 4; j++){
+            cout << list[j + i * 4] << " ";
+        }
+        cout << endl;
     }
 }
 
@@ -227,10 +230,11 @@ void Game::verify_left_mvt(){
 
 void Game::verify_low_mvt(){
     int n;
-    for (int i = 0; i < 4; i--){
+    for (int j = 0; j < 4; j++){
         bool first = true;
-        for (int j = 0; j < 4; j--){
-            n = i + 4 * j;
+        for (int i = 0; i < 4; i++){
+            n = j + 4 * i;
+            cout << "n " << n << endl;
             if (first){
                 if (list[n] == 0){
                     first = false;
@@ -238,16 +242,18 @@ void Game::verify_low_mvt(){
             }
             else{
                 if (list[n] == 0){
-                    l_low[i] = true;
+                    l_low[j] = true;
                 }
             }
-            if (list[i] != 0){
-                if (list[n] == list[i + 4 * (j - 1)]){
-                    l_low2[i] = true;
+            if (i != 0){
+                if (list[n] == list[n - 4]){
+                    l_low2[j] = true;
                 }
             }
         }
     }
+    cout << l_low[0] << ", " << l_low[1] << ", " << l_low[2] << ", " << l_low[3] <<endl;
+    cout << l_low2[0] << ", " << l_low2[1] << ", " << l_low2[2] << ", " << l_low2[3] <<endl;
 }
 
 void Game::verify_top_mvt(){
@@ -255,7 +261,8 @@ void Game::verify_top_mvt(){
     for (int i = 3; i >= 0; i--){
         bool first = true;
         for (int j = 3; j >= 0; j--){
-            n = i + 4 * j;
+            n = j + 4 * i;
+            cout << n <<endl;
             if (first){
                 if (list[n] == 0){
                     first = false;
@@ -263,12 +270,12 @@ void Game::verify_top_mvt(){
             }
             else{
                 if (list[n] == 0){
-                    l_top[i] = true;
+                    l_top[j] = true;
                 }
             }
-            if (list[i] != 3){
-                if (list[n] == list[i + 4 * (j + 1)]){
-                    l_top2[i] = true;
+            if (i != 3){
+                if (list[n] == list[n + 4]){
+                    l_top2[j] = true;
                 }
             }
         }
@@ -317,69 +324,180 @@ void Game::shift_right(int a){
     }
 }
 
+void Game::shift_left(int a){
+    int b = a + 3;
+    for (int i = a; i <= b; i++){
+        if (list[i] != 0){
+            int k = i;
+            while(k > a){
+                if (list[k-1] == 0){
+                    list[k-1] = list[k];
+                    list[k] = 0;
+                    k -= 1;
+                    afficher_data();
+                }
+                else{
+                    //k+=1; // a changer
+                    break;
+                }
+            }
+        }
+    }
+    for (int i = a; i < b; i++){
+        if (list[i] == list[i+1]){
+            list[i] *= 2;
+            list[i+1] = 0;
+        }
+    }
+    for (int i = a; i <= b; i++){
+        if (list[i] != 0){
+            int k = i;
+            while(k > a){
+                if (list[k-1] == 0){
+                    list[k-1] = list[k];
+                    list[k] = 0;
+                    k -= 1;
+                    afficher_data();
+                }
+                else{
+                    //k+=1; // a changer
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void Game::shift_low(int a){
+    cout << "rt" << endl;
+    for (int n = 3; n >= 0; n--){
+        int i = a + n*4;
+        if (list[i] != 0){
+            int k = i;
+            int kp = a + (n + 1)*4;
+            while(k < a + 3*4){
+                if (list[kp] == 0){
+                    list[kp] = list[k];
+                    list[k] = 0;
+                    k += 4;
+                    kp += 4;
+                }
+                else{
+                    //k+=1; // a changer
+                    break;
+                }
+            }
+        }
+    }
+    cout << "yo";
+    for (int n = 3; n > 0; n--){
+        int i = a + n*4;
+        int im = a + (n - 1)*4;
+        if (list[i] == list[im]){
+            list[i] *= 2;
+            list[im] = 0;
+        }
+    }
+    for (int n = 3; n >= 0; n--){
+        int i = a + n*4;
+        if (list[i] != 0){
+            int k = i;
+            int kp = a + (n + 1)*4;
+            while(k < a + 3*4){
+                if (list[kp] == 0){
+                    list[kp] = list[k];
+                    list[k] = 0;
+                    k += 4;
+                }
+                else{
+                    //k+=1; // a changer
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void Game::shift_top(int a){
+    for (int n = 0; n <= 3; n++){
+        int i = a + n*4;
+        if (list[i] != 0){
+            int k = i;
+            int km = a + (n - 1)*4;
+            while(k > a){
+                if (list[km] == 0){
+                    list[km] = list[k];
+                    list[k] = 0;
+                    k -= 4;
+                    km -= 4;
+                }
+                else{
+                    //k+=1; // a changer
+                    break;
+                }
+            }
+        }
+    }
+    for (int n = 0; n < 3; n++){
+        int i = a + n * 4;
+        int ip = a + (n + 1) * 4;
+        if (list[i] == list[ip]){
+            list[i] *= 2;
+            list[ip] = 0;
+        }
+    }
+    for (int n = 0; n <= 3; n++){
+        int i = a + n*4;
+        if (list[i] != 0){
+            int k = i;
+            int km = a + (n - 1)*4;
+            while(k > a){
+                if (list[km] == 0){
+                    list[km] = list[k];
+                    list[k] = 0;
+                    k -= 4;
+                    km -= 4;
+                }
+                else{
+                    //k+=1; // a changer
+                    break;
+                }
+            }
+        }
+    }
+}
 
 // on decale les 0 et apres on verifie si 2 cases sont pareilles
 void Game::right_mvt(){
-    cout << "wesh" << endl;
-    verify_right_mvt();
-    bool l1p = l_right[0];
-    bool l2p = l_right[1];
-    bool l3p = l_right[2];
-    bool l4p = l_right[3];
-    bool l1n = l_right2[0];
-    bool l2n = l_right2[1];
-    bool l3n = l_right2[2];
-    bool l4n = l_right2[3];
-    if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
-        if (l1p || l1n){
-            shift_right(0);
-        }
-        if (l2p || l2n){
-            shift_right(4);
-        }
-        if (l3p || l3n){
-            shift_right(8);
-        }
-        if (l4p || l4n){
-            shift_right(12);
-        }
-    }
+    shift_right(0);
+    shift_right(4);
+    shift_right(8);
+    shift_right(12);
     update();
 }
 
 void Game::left_mvt(){
-    verify_left_mvt();
-    bool l1p = l_left[0];
-    bool l2p = l_left[1];
-    bool l3p = l_left[2];
-    bool l4p = l_left[3];
-    bool l1n = l_left2[0];
-    bool l2n = l_left2[1];
-    bool l3n = l_left2[2];
-    bool l4n = l_left2[3];
-    if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
-        //TODO
-    }
+    shift_left(0);
+    shift_left(4);
+    shift_left(8);
+    shift_left(12);
+
+    update();
 }
 
 void Game::top_mvt(){
-    verify_top_mvt();
-    bool l1 = l_top[0];
-    bool l2 = l_top[1];
-    bool l3 = l_top[2];
-    bool l4 = l_top[3];
-    if (l1 || l2 || l3 || l4){
-        //TODO
-    }
+
+    shift_top(0);
+    shift_top(1);
+    shift_top(2);
+    shift_top(3);
+    update();
 }
 
 void Game::low_mvt(){
-    verify_low_mvt();
-    bool l1 = l_low[0];
-    bool l2 = l_low[1];
-    bool l3 = l_low[2];
-    bool l4 = l_low[3];
-    if (l1 || l2 || l3 || l4){
-        //TODO
-    }
+    shift_low(0);
+    shift_low(1);
+    shift_low(2);
+    shift_low(3);
+    update();
 }

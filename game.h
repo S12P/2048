@@ -43,7 +43,6 @@ public:
     Q_PROPERTY(QList<int> list READ getList NOTIFY update)
     Q_PROPERTY(qint64 score READ give_score NOTIFY update)
     Q_PROPERTY(qint64 best READ give_best NOTIFY update)
-    Q_PROPERTY(QList<string> yo READ give_yo NOTIFY update)
 
 
     Q_INVOKABLE void right_mvt();
@@ -54,7 +53,6 @@ public:
 
     qint64 give_best();
     qint64 give_score();
-    QList<string> give_yo() const {return yo;}
     QList<int> getList() const {return list;}
     //Q_INVOKABLE qint64 give_score();
     //Q_INVOKABLE qint64 give_best();
@@ -83,6 +81,9 @@ public:
     void verify_low_mvt();
     int random_init();
     void shift_right(int a);
+    void shift_left(int a);
+    void shift_top(int a);
+    void shift_low(int a);
 
 signals:
     void update();
@@ -104,7 +105,6 @@ private:
     bool l_low2[4] = {false, false, false, false};
     fstream data;
     string path = "data.txt";
-    QList<string> yo = {"A", "B", "C", "D", "A", "B", "C", "D", "A", "B", "C", "D", "A", "B", "C", "D" };
 
 
 };

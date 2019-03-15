@@ -84,7 +84,7 @@ ApplicationWindow {
                 break;
             case Qt.Key_Down:
                 console.log("KeyDown pressed");
-                game.down_mvt();
+                game.low_mvt();
                 break;
             }
         }
