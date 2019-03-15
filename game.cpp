@@ -185,7 +185,7 @@ void Game::verify_right_mvt(){
         for (int j = 0; j < 4; j++){
             n = j + 4 * i;
             if (first){
-                if (list[n] == 0){
+                if (list[n] != 0){
                     first = false;
                 }
             }
@@ -195,12 +195,14 @@ void Game::verify_right_mvt(){
                 }
             }
             if (j != 3){
-                if (list[n] == list[n+1]){
+                if (list[n] == list[n+1] && list[n] != 0){
                     l_right2[i] = true;
                 }
             }
         }
     }
+    cout << l_right[0] << ", " << l_right[1] << ", " << l_right[2] << ", " << l_right[3] <<endl;
+    cout << l_right2[0] << ", " << l_right2[1] << ", " << l_right2[2] << ", " << l_right2[3] <<endl;
 }
 
 void Game::verify_left_mvt(){
@@ -210,7 +212,7 @@ void Game::verify_left_mvt(){
         for (int j = 3; j >= 0; j--){
             n = j + 4 * i;
             if (first){
-                if (list[n] == 0){
+                if (list[n] != 0){
                     first = false;
                 }
             }
@@ -220,12 +222,14 @@ void Game::verify_left_mvt(){
                 }
             }
             if (j != 0){
-                if (list[n] == list[n-1]){
+                if (list[n] == list[n-1] && list[n] != 0){
                     l_left2[i] = true;
                 }
             }
         }
     }
+    cout << l_left[0] << ", " << l_left[1] << ", " << l_left[2] << ", " << l_left[3] <<endl;
+    cout << l_left2[0] << ", " << l_left2[1] << ", " << l_left2[2] << ", " << l_left2[3] <<endl;
 }
 
 void Game::verify_low_mvt(){
@@ -236,17 +240,19 @@ void Game::verify_low_mvt(){
             n = j + 4 * i;
             cout << "n " << n << endl;
             if (first){
-                if (list[n] == 0){
+                if (list[n] != 0){
                     first = false;
                 }
             }
             else{
+                cout << "n " << n << endl;
                 if (list[n] == 0){
+                    cout << " nnnn " << n << endl;
                     l_low[j] = true;
                 }
             }
             if (i != 0){
-                if (list[n] == list[n - 4]){
+                if (list[n] == list[n - 4] && list[n] != 0){
                     l_low2[j] = true;
                 }
             }
@@ -262,9 +268,8 @@ void Game::verify_top_mvt(){
         bool first = true;
         for (int j = 3; j >= 0; j--){
             n = j + 4 * i;
-            cout << n <<endl;
             if (first){
-                if (list[n] == 0){
+                if (list[n] != 0){
                     first = false;
                 }
             }
@@ -274,7 +279,7 @@ void Game::verify_top_mvt(){
                 }
             }
             if (i != 3){
-                if (list[n] == list[n + 4]){
+                if (list[n] == list[n + 4] && list[n] != 0){
                     l_top2[j] = true;
                 }
             }
@@ -294,7 +299,6 @@ void Game::shift_right(int a){
                     k += 1;
                 }
                 else{
-                    //k+=1; // a changer
                     break;
                 }
             }
@@ -316,7 +320,6 @@ void Game::shift_right(int a){
                     k += 1;
                 }
                 else{
-                    //k+=1; // a changer
                     break;
                 }
             }
@@ -334,10 +337,8 @@ void Game::shift_left(int a){
                     list[k-1] = list[k];
                     list[k] = 0;
                     k -= 1;
-                    afficher_data();
                 }
                 else{
-                    //k+=1; // a changer
                     break;
                 }
             }
@@ -360,7 +361,6 @@ void Game::shift_left(int a){
                     afficher_data();
                 }
                 else{
-                    //k+=1; // a changer
                     break;
                 }
             }
@@ -369,7 +369,6 @@ void Game::shift_left(int a){
 }
 
 void Game::shift_low(int a){
-    cout << "rt" << endl;
     for (int n = 3; n >= 0; n--){
         int i = a + n*4;
         if (list[i] != 0){
@@ -383,13 +382,11 @@ void Game::shift_low(int a){
                     kp += 4;
                 }
                 else{
-                    //k+=1; // a changer
                     break;
                 }
             }
         }
     }
-    cout << "yo";
     for (int n = 3; n > 0; n--){
         int i = a + n*4;
         int im = a + (n - 1)*4;
@@ -410,7 +407,6 @@ void Game::shift_low(int a){
                     k += 4;
                 }
                 else{
-                    //k+=1; // a changer
                     break;
                 }
             }
@@ -432,7 +428,6 @@ void Game::shift_top(int a){
                     km -= 4;
                 }
                 else{
-                    //k+=1; // a changer
                     break;
                 }
             }
@@ -459,7 +454,6 @@ void Game::shift_top(int a){
                     km -= 4;
                 }
                 else{
-                    //k+=1; // a changer
                     break;
                 }
             }
@@ -469,6 +463,7 @@ void Game::shift_top(int a){
 
 // on decale les 0 et apres on verifie si 2 cases sont pareilles
 void Game::right_mvt(){
+    verify_right_mvt();
     shift_right(0);
     shift_right(4);
     shift_right(8);
@@ -477,16 +472,16 @@ void Game::right_mvt(){
 }
 
 void Game::left_mvt(){
+    verify_left_mvt();
     shift_left(0);
     shift_left(4);
     shift_left(8);
     shift_left(12);
-
     update();
 }
 
 void Game::top_mvt(){
-
+    verify_top_mvt();
     shift_top(0);
     shift_top(1);
     shift_top(2);
@@ -495,6 +490,7 @@ void Game::top_mvt(){
 }
 
 void Game::low_mvt(){
+    verify_low_mvt();
     shift_low(0);
     shift_low(1);
     shift_low(2);
