@@ -1,10 +1,5 @@
 #include "game.h"
 
-//void Game::declareQML() {
-//    qmlRegisterType<Game>("MyControls", 3, 14, "Game");
-//}
-
-
 
 qint64 Game::give_score(){
     qint64 n = score;
@@ -33,10 +28,6 @@ Game::Game() : QObject () {
      * *****************************************************************************/
     load();
     win = true;
-    int x1 = random_init();
-    int x2 = random_init();
-    list[x1] = 2;
-    list[x2] = 2;
     update();
 
 }
@@ -49,7 +40,6 @@ Game::~Game(){
      *
      * *****************************************************************************/
     save();
-    // TODO
 }
 
 int Game::random_init(){
@@ -69,8 +59,8 @@ int Game::random(vector<int> v){
      *  permet de générer un nombre aléatoire entre 0 inclus et 16 exclus
      *
      * *****************************************************************************/
-    int len = v.size();
-    int nb = rand()%len;
+    unsigned long len = v.size();
+    unsigned long nb = rand()%len;
     return v[nb];
 }
 
@@ -82,6 +72,9 @@ void Game::newgame(){
      *
      * *****************************************************************************/
     score = 0;
+    list = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    list[empty_case()] = 2;
+    list[empty_case()] = 2;
     update();
     Game();
 }
@@ -134,14 +127,16 @@ void Game::load(){
         string init2 = "0 0 0 0 0 0 0 0 0 0 0 0\n";
         fichier2 << init << init2;
         fichier2.close();
+        newgame();
 
     }
-    actualize();
-
 }
 
 void Game::add_score(int a){
     score += a;
+    if (best < score){
+        best = score;
+    }
 }
 
 int Game::power(int n){
@@ -232,22 +227,19 @@ void Game::verify_left_mvt(){
     cout << l_left2[0] << ", " << l_left2[1] << ", " << l_left2[2] << ", " << l_left2[3] <<endl;
 }
 
-void Game::verify_low_mvt(){
+void Game::verify_low_mvt(){ // pb a mon avis
     int n;
     for (int j = 0; j < 4; j++){
         bool first = true;
         for (int i = 0; i < 4; i++){
             n = j + 4 * i;
-            cout << "n " << n << endl;
             if (first){
                 if (list[n] != 0){
                     first = false;
                 }
             }
             else{
-                cout << "n " << n << endl;
                 if (list[n] == 0){
-                    cout << " nnnn " << n << endl;
                     l_low[j] = true;
                 }
             }
@@ -258,8 +250,8 @@ void Game::verify_low_mvt(){
             }
         }
     }
-    cout << l_low[0] << ", " << l_low[1] << ", " << l_low[2] << ", " << l_low[3] <<endl;
-    cout << l_low2[0] << ", " << l_low2[1] << ", " << l_low2[2] << ", " << l_low2[3] <<endl;
+    cout << l_low[0] << ", " << l_low[1] << ", " << l_low[2] << ", " << l_low[3] << endl;
+    cout << l_low2[0] << ", " << l_low2[1] << ", " << l_low2[2] << ", " << l_low2[3] << endl;
 }
 
 void Game::verify_top_mvt(){
@@ -543,5 +535,17 @@ void Game::low_mvt(){
     if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
         list[empty_case()] = 2;
         update();
+    }
+}
+
+void Game::lose(){
+    verify_low_mvt();
+    verify_top_mvt();
+    verify_left_mvt();
+    verify_right_mvt();
+    for (int i = 0; i < 3; i++){
+        if (!(l_low[i] == 0 || l_low2[i] == 0 || l_left[i] == 0 || l_left2[i] == 0 || l_right[i] == 0 || l_right2[i] == 0 || l_top[i] == 0 || l_top2[i] == 0 )){
+            end = true;
+        }
     }
 }

@@ -49,6 +49,7 @@ public:
     Q_INVOKABLE void left_mvt();
     Q_INVOKABLE void top_mvt();
     Q_INVOKABLE void low_mvt();
+    Q_INVOKABLE void lose();
 
 
     qint64 give_best();
