@@ -35,15 +35,6 @@ ApplicationWindow {
     property var l15: (game.list[15] === 0) ? "" : game.list[15]
     property bool end: game.end
 
-    function endFunction() {
-        if(!end) {
-            return "HomeForm.ui.qml";
-        }
-        else{
-            console.log("c'est la fin frere");
-            return "EndForm.ui.qml";
-        }
-    }
 
 
     menuBar: MenuBar {
@@ -75,7 +66,7 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: endFunction()
+        initialItem: "HomeForm.ui.qml"
         anchors.fill: parent
         focus: true
 
