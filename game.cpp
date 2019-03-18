@@ -31,7 +31,7 @@ Game::Game() : QObject () {
      *
      * *****************************************************************************/
     load();
-    win = true;
+    //win = true;
     update();
 
 }
@@ -565,6 +565,7 @@ void Game::low_mvt(){
 }
 
 void Game::lose(){
+    win();
     afficher_data();
     verify_low_mvt();
     verify_top_mvt();
@@ -582,4 +583,16 @@ void Game::lose(){
     }
     update();
     cout << "end :" << end << endl;
+}
+
+void Game::win(){
+    for (int i = 0; i < 16; i++){
+        if (list[i] == 2048){
+            win_end = true;
+        }
+    }
+}
+
+bool Game::give_win(){
+    return win_end;
 }

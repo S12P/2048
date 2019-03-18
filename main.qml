@@ -34,6 +34,8 @@ ApplicationWindow {
     property var l14: (game.list[14] === 0) ? "" : game.list[14]
     property var l15: (game.list[15] === 0) ? "" : game.list[15]
     property bool end: game.end
+    property bool win: game.win_end
+    property bool endd: (end || win)
 
 
 

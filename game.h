@@ -44,6 +44,7 @@ public:
     Q_PROPERTY(qint64 score READ give_score NOTIFY update)
     Q_PROPERTY(qint64 best READ give_best NOTIFY update)
     Q_PROPERTY(bool end READ give_end NOTIFY update)
+    Q_PROPERTY(bool win_end READ give_win NOTIFY update)
 
 
     Q_INVOKABLE void right_mvt();
@@ -51,22 +52,19 @@ public:
     Q_INVOKABLE void top_mvt();
     Q_INVOKABLE void low_mvt();
     Q_INVOKABLE void lose();
+    Q_INVOKABLE void win();
 
 
     qint64 give_best();
     qint64 give_score();
     bool give_end();
+    bool give_win();
     QList<int> getList() const {return list;}
-    //Q_INVOKABLE qint64 give_score();
-    //Q_INVOKABLE qint64 give_best();
     Q_INVOKABLE void save();
     Q_INVOKABLE void newgame();
-    //static void declareQML();
     Game();
     ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
-    //void newgame(); // nouvelle partie
-    //void save(); // sauvegarder données
     void load(); // recuperer données
     void add_score(int a); //augmente le score
     int power(int n); // calcule puissance de deux
@@ -74,10 +72,6 @@ public:
     void afficher_score();
     void afficher_data();
     void actualize();
-    //void right_mvt();
-    //void left_mvt();
-    //void top_mvt();
-    //void low_mvt();
     void verify_right_mvt();
     void verify_left_mvt();
     void verify_top_mvt();
@@ -95,7 +89,8 @@ private:
 
     int score = 0; // score actuel
     int best = 0; // meilleur score
-    bool win = true; // gagnant ?
+    //bool win = true; // gagnant ?
+    bool win_end = false;
     bool end = false; // fin partie ?
     QList<int> list = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
     bool l_right[4] = {false, false, false, false};
