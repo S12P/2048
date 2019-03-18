@@ -43,6 +43,7 @@ public:
     Q_PROPERTY(QList<int> list READ getList NOTIFY update)
     Q_PROPERTY(qint64 score READ give_score NOTIFY update)
     Q_PROPERTY(qint64 best READ give_best NOTIFY update)
+    Q_PROPERTY(bool end READ give_end NOTIFY update)
 
 
     Q_INVOKABLE void right_mvt();
@@ -54,6 +55,7 @@ public:
 
     qint64 give_best();
     qint64 give_score();
+    bool give_end();
     QList<int> getList() const {return list;}
     //Q_INVOKABLE qint64 give_score();
     //Q_INVOKABLE qint64 give_best();

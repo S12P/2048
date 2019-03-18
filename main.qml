@@ -15,8 +15,8 @@ ApplicationWindow {
     property int numberOfRows: 4
     property int largeur: width
     property int hauteur: height
-    property var numberOfScore: game.score // a changer
-    property var numberOfBest: game.best // a changer
+    property var numberOfScore: game.score
+    property var numberOfBest: game.best
     property var l0: (game.list[0] === 0) ? "" : game.list[0]
     property var l1: (game.list[1] === 0) ? "" : game.list[1]
     property var l2: (game.list[2] === 0) ? "" : game.list[2]
@@ -33,6 +33,8 @@ ApplicationWindow {
     property var l13: (game.list[13] === 0) ? "" : game.list[13]
     property var l14: (game.list[14] === 0) ? "" : game.list[14]
     property var l15: (game.list[15] === 0) ? "" : game.list[15]
+    property bool end: game.end
+
 
 
     menuBar: MenuBar {
@@ -68,6 +70,7 @@ ApplicationWindow {
         anchors.fill: parent
         focus: true
 
+
         Keys.onPressed: {
             switch (event.key) {
             case Qt.Key_Right:
@@ -88,7 +91,6 @@ ApplicationWindow {
                 break;
             }
         }
-
-
     }
+
 }
