@@ -7,7 +7,7 @@ Rectangle {
     y: 0
     width: largeur
     height: hauteur
-    color: "#a9a9a9"
+    color: "#FFDF82"
 
     Text {
         id: element1

@@ -9,7 +9,7 @@ ApplicationWindow {
     width: 640
     height: 800
     title: qsTr("2048")
-    color: "#a9a9a9"
+    color: "#FFDF82"
     onActiveFocusItemChanged: console.log(activeFocusItem)
 
     property int numberOfRows: 4

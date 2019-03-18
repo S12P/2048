@@ -110,7 +110,7 @@ private:
     fstream data;
     string path = "data.txt";
 
-    QString c_0 = "#a9a9a9";
+    QString c_0 = "#D8B758";
     QString c_2 = "#A37B08";
     QString c_4 = "#FFE833";
     QString c_8 = "#FFA533";
