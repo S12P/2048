@@ -139,6 +139,12 @@ void Game::load(){
 }
 
 void Game::add_score(int a){
+    /*******************************************************************************
+     *
+     *  On ajoute a au score
+     *
+     *
+     * *****************************************************************************/
     score += a;
     if (best < score){
         best = score;
@@ -150,6 +156,13 @@ int Game::power(int n){
 }
 
 int Game::empty_case(){
+    /*******************************************************************************
+     *
+     *  On prend l'indice des cases vides du jeu (ie == 0) et on choisit
+     *
+     *  aléatoirement un indice pour y mettre le nouveau 2 par la suite
+     *
+     * *****************************************************************************/
     vector<int> v;
     for (int i = 0; i < 16; i++){
         if (list[i] == 0){
@@ -177,8 +190,19 @@ void Game::afficher_data(){
 
 void Game::verify_right_mvt(){
     /**************************************
-     * On verifie si il y a des 0 pour pouvoir deplacer sur la droite
-     *  ou si deux cases sont les memes
+     *
+     * l_right[i] permet de savoir si on peut deplacer a droite sur la ligne i car il y a des 0
+     *
+     * l_right2[i] permet de savoir si on peut deplacer a droite sur la ligne i car il y a des cases qui peuvent fusionner
+     *
+     *
+     * Pour faire un mouvement a droite on part de la gauche tant qu'il y a des 0 on continue a parcourir la liste
+     * des que l'on a une valuer != de 0 le first devient false et cela permet de voir si il y a des 0 par la suite
+     * si il y a un ou plusieurs 0 entre deux valeurs non nulles alors on peut se deplacer a droite sur la ligne i
+     * l_right[i] permet de savoir si on peut deplacer a droite sur la ligne i car il y a des 0
+     *
+     * Ensuite on regarde si il y a des valeurs non nulles egale ainsi on pourra fusionner les deux cases et donc se deplacer
+     *
      * **************************************/
     for (int i = 0; i < 4; i++){
         l_right[i] = false;
@@ -211,6 +235,12 @@ void Game::verify_right_mvt(){
 }
 
 void Game::verify_left_mvt(){
+
+   /***********************************************
+    * Pareil que pour verify_right_mvt() mais on part de la droite
+    *
+    *
+    * *********************************************/
     for (int i = 0; i < 4; i++){
         l_left[i] = false;
         l_left2[i] = false;
@@ -241,7 +271,12 @@ void Game::verify_left_mvt(){
     cout << "l_left2 " << l_left2[0] << ", " << l_left2[1] << ", " << l_left2[2] << ", " << l_left2[3] <<endl;
 }
 
-void Game::verify_low_mvt(){ // pb a mon avis
+void Game::verify_low_mvt(){
+    /***********************************************
+     * Pareil que pour verify_right_mvt() mais on part du haut
+     *
+     *
+     * *********************************************/
     for (int i = 0; i < 4; i++){
         l_low[i] = false;
         l_low2[i] = false;
@@ -273,6 +308,11 @@ void Game::verify_low_mvt(){ // pb a mon avis
 }
 
 void Game::verify_top_mvt(){
+    /***********************************************
+     * Pareil que pour verify_right_mvt() mais on part du bas
+     *
+     *
+     * *********************************************/
     for (int i = 0; i < 4; i++){
         l_top[i] = false;
         l_top2[i] = false;
@@ -304,6 +344,13 @@ void Game::verify_top_mvt(){
 }
 
 void Game::shift_right(int a){
+    /******************************************************
+     * On opere en trois etapes:
+     * - on decale a droite tant qu'il y a des 0 entre deux valeurs non nulles
+     * - on fusionne les cases vers la droite si on peut
+     * - on decale a droite tant qu'il y a des 0 entre deux valeurs non nulles
+     *
+     * ******************************************************/
     int b = a + 3;
     for (int i = b; i >= a; i--){
         if (list[i] != 0){
@@ -481,8 +528,15 @@ void Game::shift_top(int a){
     }
 }
 
-// on decale les 0 et apres on verifie si 2 cases sont pareilles
+
 void Game::right_mvt(){
+    /**********************************
+     * On verifie si l'on a perdu et gagné
+     * on fait les mouvements possiblent
+     * ensuite on regarde si il y a une possibilités avec les bool
+     * si c'est le cas on crée une nouvelle cases aléatoirement et on y met un 2
+     *
+     * **********************************/
     lose();
     bool l1p = l_right[0];
     bool l2p = l_right[1];
@@ -567,6 +621,13 @@ void Game::low_mvt(){
 }
 
 void Game::lose(){
+    /*************************
+     *  On regarde si on gagné avec win() ou perdu on verifiant juste les listes de bool qui indique les possibilités
+     *
+     * si toutes les vides sont nulles alors c'est la fin du jeu
+     *
+     *
+     * *************************/
     win();
     afficher_data();
     verify_low_mvt();
@@ -588,6 +649,10 @@ void Game::lose(){
 }
 
 void Game::win(){
+    /***********************************
+     * Si une valeur de list = 2048 alors le jeu est fini le joueur a gagné
+     *
+     * ***********************************/
     for (int i = 0; i < 16; i++){
         if (list[i] == 2048){
             win_end = true;
