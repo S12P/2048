@@ -81,6 +81,7 @@ void Game::newgame(){
     list = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     list[empty_case()] = 2;
     list[empty_case()] = 2;
+    change_color();
     update();
     Game();
 }
