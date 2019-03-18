@@ -94,7 +94,7 @@ Rectangle {
     }
 
     Rectangle {
-        visible: !end
+        visible: !endd
         id: rectangle2
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
@@ -114,7 +114,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl0
 
                 Text {
                     text: l0
@@ -125,7 +125,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl1
 
                 Text {
                     text: l1
@@ -136,7 +136,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl2
 
                 Text {
                     text: l2
@@ -147,7 +147,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl3
 
                 Text {
                     text: l3
@@ -158,7 +158,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl4
 
                 Text {
                     text: l4
@@ -169,7 +169,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl5
 
                 Text {
                     text: l5
@@ -180,7 +180,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl6
 
                 Text {
                     text: l6
@@ -191,7 +191,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl7
 
                 Text {
                     text: l7
@@ -202,7 +202,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl8
 
                 Text {
                     text: l8
@@ -213,7 +213,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl9
 
                 Text {
                     text: l9
@@ -224,7 +224,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl10
 
                 Text {
                     text: l10
@@ -235,7 +235,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl11
 
                 Text {
                     text: l11
@@ -246,7 +246,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl12
 
                 Text {
                     text: l12
@@ -257,7 +257,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl13
 
                 Text {
                     text: l13
@@ -268,7 +268,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl14
 
                 Text {
                     text: l14
@@ -279,7 +279,7 @@ Rectangle {
             Rectangle {
                 width: 70
                 height: 70
-                color: "burlywood"
+                color: cl15
 
                 Text {
                     text: l15
@@ -300,6 +300,21 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         Text {
             text: "Tu as perdu"
+            font.pointSize: 30
+            anchors.centerIn: parent
+        }
+    }
+
+    Rectangle {
+        visible: win
+        id: rectangle2win
+        width: 200
+        height: 230
+        color: "#ffffff"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        Text {
+            text: "Tu as gagné"
             font.pointSize: 30
             anchors.centerIn: parent
         }

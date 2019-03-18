@@ -28,6 +28,9 @@
 #include <QtGlobal>
 
 
+#include <cmath>
+
+
 
 
 using namespace std;
@@ -45,6 +48,7 @@ public:
     Q_PROPERTY(qint64 best READ give_best NOTIFY update)
     Q_PROPERTY(bool end READ give_end NOTIFY update)
     Q_PROPERTY(bool win_end READ give_win NOTIFY update)
+    Q_PROPERTY(QList<QString> lcolor READ give_color NOTIFY update)
 
 
     Q_INVOKABLE void right_mvt();
@@ -60,6 +64,7 @@ public:
     bool give_end();
     bool give_win();
     QList<int> getList() const {return list;}
+    QList<QString> give_color() {return lcolor;}
     Q_INVOKABLE void save();
     Q_INVOKABLE void newgame();
     Game();
@@ -81,6 +86,7 @@ public:
     void shift_left(int a);
     void shift_top(int a);
     void shift_low(int a);
+    void change_color();
 
 signals:
     void update();
@@ -103,6 +109,22 @@ private:
     bool l_low2[4] = {false, false, false, false};
     fstream data;
     string path = "data.txt";
+
+    QString c_0 = "#a9a9a9";
+    QString c_2 = "#A37B08";
+    QString c_4 = "#FFE833";
+    QString c_8 = "#FFA533";
+    QString c_16 = "#FF3383";
+    QString c_32 = "#FF5133";
+    QString c_64 = "#33FFBC";
+    QString c_128 = "#33FF4A";
+    QString c_256 = "#B933FF";
+    QString c_512 = "#3A33FF";
+    QString c_1024 = "#FF3344";
+
+    QList<QString> defcolor = {c_0, c_2, c_4, c_8, c_16, c_32, c_64, c_128, c_256, c_512, c_1024};
+
+    QList<QString> lcolor = {c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0}; // 16 cases
 
 
 };

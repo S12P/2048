@@ -553,6 +553,7 @@ void Game::right_mvt(){
     shift_right(12);
     if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
         list[empty_case()] = 2;
+        change_color();
         update();
     }
 }
@@ -574,6 +575,7 @@ void Game::left_mvt(){
     shift_left(12);
     if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
         list[empty_case()] = 2;
+        change_color();
         update();
     }
 }
@@ -595,6 +597,7 @@ void Game::top_mvt(){
     shift_top(3);
     if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
         list[empty_case()] = 2;
+        change_color();
         update();
     }
 }
@@ -614,8 +617,10 @@ void Game::low_mvt(){
     shift_low(1);
     shift_low(2);
     shift_low(3);
+    //change_color();
     if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
         list[empty_case()] = 2;
+        change_color();
         update();
     }
 }
@@ -662,4 +667,16 @@ void Game::win(){
 
 bool Game::give_win(){
     return win_end;
+}
+
+void Game::change_color(){
+    for (int i = 0; i < 16; i++){
+        if (list[i] == 0){
+            lcolor[i] = defcolor[0];
+        }
+        else{
+            int c = int(log2(list[i]));
+            lcolor[i] = defcolor[c];
+        }
+    }
 }
