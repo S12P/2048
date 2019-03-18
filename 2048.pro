@@ -32,7 +32,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    main.ui.qml
+    main.ui.qml \
+    2048.png \
+    bouton_jouez.png
 
 HEADERS += \
     game.h
