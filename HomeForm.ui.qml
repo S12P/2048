@@ -31,8 +31,8 @@ Rectangle {
             id: rectangle1
             x: 0
             y: 0
-            width: 85
-            height: 80
+            width: 120
+            height: 100
             Text {
                 x: 22
                 y: 0
@@ -50,7 +50,7 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 font.family: "Courier"
-                font.pixelSize: 40
+                font.pixelSize: 30
             }
         }
 
@@ -80,7 +80,7 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 font.family: "Courier"
-                font.pixelSize: 40
+                font.pixelSize: 30
             }
         }
         Button {
