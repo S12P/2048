@@ -580,5 +580,6 @@ void Game::lose(){
     if ((inter[0] && inter[1]) && (inter[2] && inter[3])){
         end = true;
     }
+    update();
     cout << "end :" << end << endl;
 }

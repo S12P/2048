@@ -20,9 +20,6 @@ Rectangle {
         font.pixelSize: 56
     }
 
-
-
-
     Rectangle {
         anchors.right: parent.right
         id: scoreBoard
@@ -30,15 +27,13 @@ Rectangle {
         height: 150
         anchors.rightMargin: 38
 
-
-
-        Rectangle{
+        Rectangle {
             id: rectangle1
             x: 0
             y: 0
             width: 85
             height: 80
-            Text{
+            Text {
                 x: 22
                 y: 0
                 width: 41
@@ -57,12 +52,9 @@ Rectangle {
                 font.family: "Courier"
                 font.pixelSize: 40
             }
-
         }
 
-
-
-        Rectangle{
+        Rectangle {
             x: 95
             y: 0
             width: 85
@@ -71,7 +63,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.bottom: rectangle1.bottom
             anchors.top: parent.top
-            Text{
+            Text {
                 x: 27
                 y: 0
                 width: 31
@@ -101,14 +93,13 @@ Rectangle {
         }
     }
 
-
-
     Rectangle {
+        visible: !end
         id: rectangle2
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
-        width: 5 + 5 + 10*(numberOfRows-1) + 70*numberOfRows
-        height: 5 + 5 + 10*(numberOfRows-1) + 70*numberOfRows
+        width: 5 + 5 + 10 * (numberOfRows - 1) + 70 * numberOfRows
+        height: 5 + 5 + 10 * (numberOfRows - 1) + 70 * numberOfRows
         color: "black"
 
         Grid {
@@ -120,118 +111,216 @@ Rectangle {
             columns: numberOfRows
             spacing: 10
 
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l0
+                Text {
+                    text: l0
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l1
+                Text {
+                    text: l1
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l2
+                Text {
+                    text: l2
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l3
+                Text {
+                    text: l3
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l4
+                Text {
+                    text: l4
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l5
+                Text {
+                    text: l5
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l6
+                Text {
+                    text: l6
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l7
+                Text {
+                    text: l7
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l8
+                Text {
+                    text: l8
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l9
+                Text {
+                    text: l9
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l10
+                Text {
+                    text: l10
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l11
+                Text {
+                    text: l11
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l12
+                Text {
+                    text: l12
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l13
+                Text {
+                    text: l13
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l14
+                Text {
+                    text: l14
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
-            Rectangle { width: 70; height: 70
+            Rectangle {
+                width: 70
+                height: 70
                 color: "burlywood"
 
-                Text { text: l15
+                Text {
+                    text: l15
                     font.pointSize: 30
-                    anchors.centerIn: parent }
+                    anchors.centerIn: parent
+                }
             }
         }
     }
+
+    Rectangle {
+        visible: end
+        id: rectangle2end
+        width: 200
+        height: 230
+        color: "#ffffff"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        Text {
+            text: "Tu as perdu"
+            font.pointSize: 30
+            anchors.centerIn: parent
+        }
+    }
 }
+
+
+
+
+
+/*##^## Designer {
+    D{i:1;invisible:true}D{i:4;invisible:true}D{i:5;invisible:true}D{i:3;invisible:true}
+D{i:7;invisible:true}D{i:8;invisible:true}D{i:6;invisible:true}D{i:9;invisible:true}
+D{i:2;invisible:true}D{i:13;invisible:true}D{i:12;invisible:true}D{i:15;invisible:true}
+D{i:14;invisible:true}D{i:17;invisible:true}D{i:16;invisible:true}D{i:19;invisible:true}
+D{i:18;invisible:true}D{i:21;invisible:true}D{i:20;invisible:true}D{i:23;invisible:true}
+D{i:22;invisible:true}D{i:25;invisible:true}D{i:24;invisible:true}D{i:27;invisible:true}
+D{i:26;invisible:true}D{i:29;invisible:true}D{i:28;invisible:true}D{i:31;invisible:true}
+D{i:30;invisible:true}D{i:33;invisible:true}D{i:32;invisible:true}D{i:35;invisible:true}
+D{i:34;invisible:true}D{i:37;invisible:true}D{i:36;invisible:true}D{i:39;invisible:true}
+D{i:38;invisible:true}D{i:41;invisible:true}D{i:40;invisible:true}D{i:43;invisible:true}
+D{i:42;invisible:true}D{i:11;invisible:true}D{i:10;invisible:true}
+}
+ ##^##*/
