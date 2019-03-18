@@ -4,14 +4,11 @@
         <file>HomeForm.ui.qml</file>
         <file>Home.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
-<<<<<<< HEAD
         <file>Depart.qml</file>
         <file>DepartForm.ui.qml</file>
         <file>2048.png</file>
         <file>bouton_jouez.png</file>
-=======
         <file>End.qml</file>
         <file>EndForm.ui.qml</file>
->>>>>>> 33b08c8fdb8f318085f748e9737c508413c76d7f
     </qresource>
 </RCC>
