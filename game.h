@@ -96,6 +96,7 @@ private:
     int score = 0; // score actuel
     int best = 0; // meilleur score
     //bool win = true; // gagnant ?
+    string begin = "DepartForm.ui.qml";
     bool win_end = false;
     bool end = false; // fin partie ?
     QList<int> list = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
@@ -121,8 +122,9 @@ private:
     QString c_256 = "#B933FF";
     QString c_512 = "#3A33FF";
     QString c_1024 = "#FF3344";
+    QString c_2048 = "#FF3344";
 
-    QList<QString> defcolor = {c_0, c_2, c_4, c_8, c_16, c_32, c_64, c_128, c_256, c_512, c_1024};
+    QList<QString> defcolor = {c_0, c_2, c_4, c_8, c_16, c_32, c_64, c_128, c_256, c_512, c_1024, c_2048};
 
     QList<QString> lcolor = {c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0}; // 16 cases
 
