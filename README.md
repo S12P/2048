@@ -1,5 +1,5 @@
 # 2048
-2048 game
 
+Here is the implementation of the game 2048 in C ++ and qml.
 
-En construction
+You can compile the project with Qt Creator version 5.12.1
