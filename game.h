@@ -28,6 +28,9 @@
 #include <QtGlobal>
 
 
+#include <cmath>
+
+
 
 
 using namespace std;
@@ -44,6 +47,8 @@ public:
     Q_PROPERTY(qint64 score READ give_score NOTIFY update)
     Q_PROPERTY(qint64 best READ give_best NOTIFY update)
     Q_PROPERTY(bool end READ give_end NOTIFY update)
+    Q_PROPERTY(bool win_end READ give_win NOTIFY update)
+    Q_PROPERTY(QList<QString> lcolor READ give_color NOTIFY update)
 
 
     Q_INVOKABLE void right_mvt();
@@ -51,22 +56,20 @@ public:
     Q_INVOKABLE void top_mvt();
     Q_INVOKABLE void low_mvt();
     Q_INVOKABLE void lose();
+    Q_INVOKABLE void win();
 
 
     qint64 give_best();
     qint64 give_score();
     bool give_end();
+    bool give_win();
     QList<int> getList() const {return list;}
-    //Q_INVOKABLE qint64 give_score();
-    //Q_INVOKABLE qint64 give_best();
+    QList<QString> give_color() {return lcolor;}
     Q_INVOKABLE void save();
     Q_INVOKABLE void newgame();
-    //static void declareQML();
     Game();
     ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
-    //void newgame(); // nouvelle partie
-    //void save(); // sauvegarder données
     void load(); // recuperer données
     void add_score(int a); //augmente le score
     int power(int n); // calcule puissance de deux
@@ -74,10 +77,6 @@ public:
     void afficher_score();
     void afficher_data();
     void actualize();
-    //void right_mvt();
-    //void left_mvt();
-    //void top_mvt();
-    //void low_mvt();
     void verify_right_mvt();
     void verify_left_mvt();
     void verify_top_mvt();
@@ -87,6 +86,7 @@ public:
     void shift_left(int a);
     void shift_top(int a);
     void shift_low(int a);
+    void change_color();
 
 signals:
     void update();
@@ -95,7 +95,8 @@ private:
 
     int score = 0; // score actuel
     int best = 0; // meilleur score
-    bool win = true; // gagnant ?
+    //bool win = true; // gagnant ?
+    bool win_end = false;
     bool end = false; // fin partie ?
     QList<int> list = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
     bool l_right[4] = {false, false, false, false};
@@ -108,6 +109,22 @@ private:
     bool l_low2[4] = {false, false, false, false};
     fstream data;
     string path = "data.txt";
+
+    QString c_0 = "#D8B758";
+    QString c_2 = "#A37B08";
+    QString c_4 = "#FFE833";
+    QString c_8 = "#FFA533";
+    QString c_16 = "#FF3383";
+    QString c_32 = "#FF5133";
+    QString c_64 = "#33FFBC";
+    QString c_128 = "#33FF4A";
+    QString c_256 = "#B933FF";
+    QString c_512 = "#3A33FF";
+    QString c_1024 = "#FF3344";
+
+    QList<QString> defcolor = {c_0, c_2, c_4, c_8, c_16, c_32, c_64, c_128, c_256, c_512, c_1024};
+
+    QList<QString> lcolor = {c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0}; // 16 cases
 
 
 };

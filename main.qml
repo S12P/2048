@@ -9,7 +9,7 @@ ApplicationWindow {
     width: 640
     height: 800
     title: qsTr("2048")
-    color: "#a9a9a9"
+    color: "#FFDF82"
     onActiveFocusItemChanged: console.log(activeFocusItem)
 
     property int numberOfRows: 4
@@ -34,6 +34,28 @@ ApplicationWindow {
     property var l14: (game.list[14] === 0) ? "" : game.list[14]
     property var l15: (game.list[15] === 0) ? "" : game.list[15]
     property bool end: game.end
+    property bool win: game.win_end
+    property bool endd: (end || win)
+
+
+
+    property var cl0: game.lcolor[0]
+    property var cl1: game.lcolor[1]
+    property var cl2: game.lcolor[2]
+    property var cl3: game.lcolor[3]
+    property var cl4: game.lcolor[4]
+    property var cl5: game.lcolor[5]
+    property var cl6: game.lcolor[6]
+    property var cl7: game.lcolor[7]
+    property var cl8: game.lcolor[8]
+    property var cl9: game.lcolor[9]
+    property var cl10: game.lcolor[10]
+    property var cl11: game.lcolor[11]
+    property var cl12: game.lcolor[12]
+    property var cl13: game.lcolor[13]
+    property var cl14: game.lcolor[14]
+    property var cl15: game.lcolor[15]
+
 
 
 
