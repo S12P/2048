@@ -56,6 +56,8 @@ ApplicationWindow {
     property var cl14: game.lcolor[14]
     property var cl15: game.lcolor[15]
 
+    property var begin: game.begin
+
 
 
 
@@ -88,7 +90,7 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "HomeForm.ui.qml"
+        initialItem: "DepartForm.ui.qml"
         anchors.fill: parent
         focus: true
 

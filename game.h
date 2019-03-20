@@ -96,6 +96,7 @@ private:
     int score = 0; // score actuel
     int best = 0; // meilleur score
     //bool win = true; // gagnant ?
+    string begin = "DepartForm.ui.qml";
     bool win_end = false;
     bool end = false; // fin partie ?
     QList<int> list = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
