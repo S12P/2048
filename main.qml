@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 ApplicationWindow {
     id: window
     visible: true
-    width: 640
+    width: 1000
     height: 800
     title: qsTr("2048")
     color: "#FFDF82"

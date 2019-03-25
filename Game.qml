@@ -100,7 +100,7 @@ Rectangle {
         //visible: !endd
         id: rectangle2
         opacity: opac
-        //anchors.bottomMargin: 5
+        //anchors.topMargin: 20
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         width: 5 + 5 + 10 * (numberOfRows - 1) + carre * numberOfRows
