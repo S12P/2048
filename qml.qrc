@@ -1,14 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>HomeForm.ui.qml</file>
-        <file>Home.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>Depart.qml</file>
-        <file>DepartForm.ui.qml</file>
         <file>2048.png</file>
         <file>bouton_jouez.png</file>
-        <file>End.qml</file>
-        <file>EndForm.ui.qml</file>
+        <file>DepartForm.ui.qml</file>
+        <file>Game.qml</file>
+        <file>GameForm.ui.qml</file>
     </qresource>
 </RCC>

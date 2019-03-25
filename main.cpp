@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return -1;
     engine.rootContext()->setContextProperty("game", &game);
-    game.afficher_data();
 
     return app.exec();
 }

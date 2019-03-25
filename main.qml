@@ -63,6 +63,8 @@ ApplicationWindow {
 
 
 
+
+
     menuBar: MenuBar {
         Menu {
             title: qsTr("&Fichier")
@@ -92,7 +94,7 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "DepartForm.ui.qml"
+        initialItem: "Game.qml"
         anchors.fill: parent
         focus: true
 
