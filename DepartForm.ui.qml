@@ -1,8 +1,8 @@
 import QtQuick 2.4
 
 Item {
-    width: 640
-    height: 800
+    width: largeur
+    height: hauteur
 
     AnimatedImage {
         id: animatedImage
@@ -14,6 +14,8 @@ Item {
         playing: false
         currentFrame: 0
         source: "2048.png"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     BorderImage {
@@ -23,6 +25,8 @@ Item {
         width: 182
         height: 64
         source: "bouton_jouez.png"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: animatedImage.bottom
         Loader {
             id: pageLoader
         }
@@ -32,16 +36,3 @@ Item {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-/*##^## Designer {
-    D{i:1;anchors_height:152;anchors_width:165;anchors_x:118;anchors_y:124}
-}
- ##^##*/
