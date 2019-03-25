@@ -13,6 +13,7 @@ ApplicationWindow {
     onActiveFocusItemChanged: console.log(activeFocusItem)
 
     property int numberOfRows: 4
+    property int carre: 120
     property int largeur: width
     property int hauteur: height
     property var numberOfScore: game.score

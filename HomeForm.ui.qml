@@ -113,8 +113,8 @@ Rectangle {
             spacing: 10
 
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl0
 
                 Text {
@@ -124,8 +124,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl1
 
                 Text {
@@ -135,8 +135,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl2
 
                 Text {
@@ -146,8 +146,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl3
 
                 Text {
@@ -157,8 +157,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl4
 
                 Text {
@@ -168,8 +168,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl5
 
                 Text {
@@ -179,8 +179,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl6
 
                 Text {
@@ -190,8 +190,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl7
 
                 Text {
@@ -201,8 +201,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl8
 
                 Text {
@@ -212,8 +212,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl9
 
                 Text {
@@ -223,8 +223,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl10
 
                 Text {
@@ -234,8 +234,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl11
 
                 Text {
@@ -245,8 +245,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl12
 
                 Text {
@@ -256,8 +256,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl13
 
                 Text {
@@ -267,8 +267,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl14
 
                 Text {
@@ -278,8 +278,8 @@ Rectangle {
                 }
             }
             Rectangle {
-                width: 70
-                height: 70
+                width: carre
+                height: carre
                 color: cl15
 
                 Text {
