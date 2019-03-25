@@ -37,6 +37,7 @@ ApplicationWindow {
     property bool end: game.end
     property bool win: game.win_end
     property bool endd: (end || win)
+    property real opac: 1-(game.end||game.win_end)/2
 
 
 

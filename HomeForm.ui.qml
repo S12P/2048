@@ -95,8 +95,9 @@ Rectangle {
     }
 
     Rectangle {
-        visible: !endd
+        //visible: !endd
         id: rectangle2
+        opacity: opac
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         width: 5 + 5 + 10 * (numberOfRows - 1) + 70 * numberOfRows
@@ -296,7 +297,7 @@ Rectangle {
         id: rectangle2end
         width: 200
         height: 230
-        color: "#ffffff"
+        color: "transparent"
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         Text {
@@ -311,13 +312,21 @@ Rectangle {
         id: rectangle2win
         width: 200
         height: 230
-        color: "#ffffff"
+        color: "transparent"
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         Text {
+            id:texte
             text: "Tu as gagné"
             font.pointSize: 30
             anchors.centerIn: parent
+        }
+        Button {
+            text: "Continuer ?"
+            anchors.top: texte.bottom
+            anchors.horizontalCenter: texte.horizontalCenter
+            onPressed: opac = 1;
+            onClicked: win=false;
         }
     }
 }
