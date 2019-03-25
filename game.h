@@ -67,7 +67,7 @@ public:
     QList<QString> give_color() {return lcolor;}
     Q_INVOKABLE void save();
     Q_INVOKABLE void newgame();
-    Game();
+    explicit Game(QObject *parent = 0);
     ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
     void load(); // recuperer données

@@ -63,8 +63,8 @@ Rectangle {
             height: 80
             anchors.verticalCenter: rectangle1.verticalCenter
             anchors.right: parent.right
-            anchors.bottom: rectangle1.bottom
-            anchors.top: parent.top
+            //anchors.bottom: rectangle1.bottom
+            //anchors.top: parent.top
             Text {
                 x: 27
                 y: 0
