@@ -100,8 +100,8 @@ Rectangle {
         opacity: opac
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
-        width: 5 + 5 + 10 * (numberOfRows - 1) + 70 * numberOfRows
-        height: 5 + 5 + 10 * (numberOfRows - 1) + 70 * numberOfRows
+        width: 5 + 5 + 10 * (numberOfRows - 1) + carre * numberOfRows
+        height: 5 + 5 + 10 * (numberOfRows - 1) + carre * numberOfRows
         color: "black"
 
         Grid {
