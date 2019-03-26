@@ -23,7 +23,7 @@ bool Game::give_end(){
 }
 
 
-Game::Game() : QObject () {
+Game::Game(QObject *parent) : QObject (parent) {
     /*******************************************************************************
      *
      *  Fonction qui permet de jouer

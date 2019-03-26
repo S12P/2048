@@ -9,6 +9,8 @@ Rectangle {
     height: hauteur
     color: "#FFDF82"
 
+    property alias b_newgame: buttongame
+
     Text {
         id: element1
         x: 14
@@ -84,13 +86,13 @@ Rectangle {
             }
         }
         Button {
-            id: button
+            id: buttongame
             x: 40
             y: 91
             text: qsTr("New game")
             anchors.horizontalCenter: parent.horizontalCenter
             focusPolicy: Qt.TabFocus
-            onClicked: game.newgame()
+            //onClicked: game.newgame()
         }
     }
 
@@ -98,6 +100,7 @@ Rectangle {
         //visible: !endd
         id: rectangle2
         opacity: opac
+        //anchors.bottomMargin: 5
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         width: 5 + 5 + 10 * (numberOfRows - 1) + carre * numberOfRows
@@ -333,19 +336,3 @@ Rectangle {
 
 
 
-
-
-/*##^## Designer {
-    D{i:1;invisible:true}D{i:4;invisible:true}D{i:5;invisible:true}D{i:3;invisible:true}
-D{i:7;invisible:true}D{i:8;invisible:true}D{i:6;invisible:true}D{i:9;invisible:true}
-D{i:2;invisible:true}D{i:13;invisible:true}D{i:12;invisible:true}D{i:15;invisible:true}
-D{i:14;invisible:true}D{i:17;invisible:true}D{i:16;invisible:true}D{i:19;invisible:true}
-D{i:18;invisible:true}D{i:21;invisible:true}D{i:20;invisible:true}D{i:23;invisible:true}
-D{i:22;invisible:true}D{i:25;invisible:true}D{i:24;invisible:true}D{i:27;invisible:true}
-D{i:26;invisible:true}D{i:29;invisible:true}D{i:28;invisible:true}D{i:31;invisible:true}
-D{i:30;invisible:true}D{i:33;invisible:true}D{i:32;invisible:true}D{i:35;invisible:true}
-D{i:34;invisible:true}D{i:37;invisible:true}D{i:36;invisible:true}D{i:39;invisible:true}
-D{i:38;invisible:true}D{i:41;invisible:true}D{i:40;invisible:true}D{i:43;invisible:true}
-D{i:42;invisible:true}D{i:11;invisible:true}D{i:10;invisible:true}
-}
- ##^##*/

@@ -1,8 +1,11 @@
-import QtQuick 2.4
+import QtQuick 2.9
+import QtQuick.Controls 2.3
 
 Item {
+    property alias rectMouse: mouse1
     width: largeur
     height: hauteur
+    id: depart
 
     AnimatedImage {
         id: animatedImage
@@ -18,6 +21,31 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
+    property alias button1 : button1
+
+
+    Button {
+        id: button1
+        x: -50
+        y: 21
+        spacing: -1
+
+        Text {
+            id: element
+            x: 0
+            y: 0
+            width: 100
+            height: 39
+            text: qsTr("Jouez !")
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            lineHeight: 0
+            font.pixelSize: 21
+        }
+    }
+
+
+
     BorderImage {
         id: borderImage
         x: 229
@@ -31,8 +59,9 @@ Item {
             id: pageLoader
         }
         MouseArea {
+            id: mouse1
             anchors.fill: parent
-            onClicked: stackView.push("HomeForm.ui.qml")
+
         }
     }
 }

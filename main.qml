@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 ApplicationWindow {
     id: window
     visible: true
-    width: 640
+    width: 1000
     height: 800
     title: qsTr("2048")
     color: "#FFDF82"
@@ -63,6 +63,8 @@ ApplicationWindow {
 
 
 
+
+
     menuBar: MenuBar {
         Menu {
             title: qsTr("&Fichier")
@@ -92,7 +94,7 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "DepartForm.ui.qml"
+        initialItem: "Game.qml"
         anchors.fill: parent
         focus: true
 
