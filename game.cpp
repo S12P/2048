@@ -681,3 +681,41 @@ void Game::change_color(){
         }
     }
 }
+
+void Game::ia(){
+    bool abouger=false;
+    verify_low_mvt();
+    for (int i = 0; i < 4; ++i) {
+        if (l_low[i]==true){
+            low_mvt();
+            abouger=true;
+        }
+    }
+    if (!abouger){
+        verify_right_mvt();
+        for (int i = 0; i < 4; ++i) {
+            if (l_low[i]==true){
+                right_mvt();
+                abouger=true;
+            }
+        }
+        if (!abouger){
+            verify_left_mvt();
+            for (int i = 0; i < 4; ++i) {
+                if (l_low[i]==true){
+                    left_mvt();
+                    abouger=true;
+                }
+            }
+            if (!abouger){
+                verify_top_mvt();
+                for (int i = 0; i < 4; ++i) {
+                    if (l_low[i]==true){
+                        top_mvt();
+                        abouger=true;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -76,6 +76,7 @@ public:
     int empty_case();
     void afficher_score();
     void afficher_data();
+    void ia();
     void actualize();
     void verify_right_mvt();
     void verify_left_mvt();
