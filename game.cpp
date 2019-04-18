@@ -231,8 +231,6 @@ void Game::verify_right_mvt(){
             }
         }
     }
-    cout << "l_right " << l_right[0] << ", " << l_right[1] << ", " << l_right[2] << ", " << l_right[3] <<endl;
-    cout << "l_right2 " << l_right2[0] << ", " << l_right2[1] << ", " << l_right2[2] << ", " << l_right2[3] <<endl;
 }
 
 void Game::verify_left_mvt(){
@@ -268,8 +266,6 @@ void Game::verify_left_mvt(){
             }
         }
     }
-    cout << "l_left " << l_left[0] << ", " << l_left[1] << ", " << l_left[2] << ", " << l_left[3] <<endl;
-    cout << "l_left2 " << l_left2[0] << ", " << l_left2[1] << ", " << l_left2[2] << ", " << l_left2[3] <<endl;
 }
 
 void Game::verify_low_mvt(){
@@ -304,8 +300,6 @@ void Game::verify_low_mvt(){
             }
         }
     }
-    cout << "l_low " << l_low[0] << ", " << l_low[1] << ", " << l_low[2] << ", " << l_low[3] << endl;
-    cout << "l_low2 " << l_low2[0] << ", " << l_low2[1] << ", " << l_low2[2] << ", " << l_low2[3] << endl;
 }
 
 void Game::verify_top_mvt(){
@@ -340,8 +334,6 @@ void Game::verify_top_mvt(){
             }
         }
     }
-    cout << "l_top " << l_top[0] << ", " << l_top[1] << ", " << l_top[2] << ", " << l_top[3] <<endl;
-    cout << "l_top2 " << l_top2[0] << ", " << l_top2[1] << ", " << l_top2[2] << ", " << l_top2[3] <<endl;
 }
 
 void Game::shift_right(int a){
@@ -533,9 +525,8 @@ void Game::shift_top(int a){
 void Game::right_mvt(){
     /**********************************
      * On verifie si l'on a perdu et gagné
-     * on fait les mouvements possiblent
-     * ensuite on regarde si il y a une possibilités avec les bool
-     * si c'est le cas on crée une nouvelle cases aléatoirement et on y met un 2
+     * on fait tous les mouvements possible à droite
+     * si on peut on prend une cases aléatoirement parmis celle qui sont vide et on y met un 2
      *
      * **********************************/
     lose();
@@ -618,7 +609,6 @@ void Game::low_mvt(){
     shift_low(1);
     shift_low(2);
     shift_low(3);
-    //change_color();
     if (l1p || l2p || l3p || l4p || l1n || l2n || l3n || l4n){
         list[empty_case()] = 2;
         change_color();
@@ -671,6 +661,10 @@ bool Game::give_win(){
 }
 
 void Game::change_color(){
+    /***********************************
+     * Permet de changer la couleur de la case suivant sa valeur
+     *
+     * ***********************************/
     for (int i = 0; i < 16; i++){
         if (list[i] == 0){
             lcolor[i] = defcolor[0];
@@ -682,40 +676,3 @@ void Game::change_color(){
     }
 }
 
-void Game::ia(){
-    bool abouger=false;
-    verify_low_mvt();
-    for (int i = 0; i < 4; ++i) {
-        if (l_low[i]==true){
-            low_mvt();
-            abouger=true;
-        }
-    }
-    if (!abouger){
-        verify_right_mvt();
-        for (int i = 0; i < 4; ++i) {
-            if (l_low[i]==true){
-                right_mvt();
-                abouger=true;
-            }
-        }
-        if (!abouger){
-            verify_left_mvt();
-            for (int i = 0; i < 4; ++i) {
-                if (l_low[i]==true){
-                    left_mvt();
-                    abouger=true;
-                }
-            }
-            if (!abouger){
-                verify_top_mvt();
-                for (int i = 0; i < 4; ++i) {
-                    if (l_low[i]==true){
-                        top_mvt();
-                        abouger=true;
-                    }
-                }
-            }
-        }
-    }
-}

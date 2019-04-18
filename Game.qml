@@ -63,8 +63,6 @@ Rectangle {
             height: 80
             anchors.verticalCenter: rectangle1.verticalCenter
             anchors.right: parent.right
-            //anchors.bottom: rectangle1.bottom
-            //anchors.top: parent.top
             Text {
                 x: 27
                 y: 0
@@ -97,10 +95,8 @@ Rectangle {
     }
 
     Rectangle {
-        //visible: !endd
         id: rectangle2
         opacity: opac
-        //anchors.topMargin: 20
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         width: 5 + 5 + 10 * (numberOfRows - 1) + carre * numberOfRows

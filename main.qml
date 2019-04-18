@@ -1,7 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.3
 import QtGraphicalEffects 1.0
-//import MyControls 3.14
 
 ApplicationWindow {
     id: window

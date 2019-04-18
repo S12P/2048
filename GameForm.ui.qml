@@ -25,16 +25,16 @@ Rectangle {
     Rectangle {
         anchors.right: parent.right
         id: scoreBoard
-        width: 180
-        height: 150
+        width: 220
+        height: 125
         anchors.rightMargin: 38
 
         Rectangle {
             id: rectangle1
             x: 0
             y: 0
-            width: 120
-            height: 100
+            width: 110
+            height: 80
             Text {
                 x: 22
                 y: 0
@@ -57,14 +57,14 @@ Rectangle {
         }
 
         Rectangle {
-            x: 95
+            x: 110
             y: 0
-            width: 85
-            height: 80
+            width: 110
+            height: 100
             anchors.verticalCenter: rectangle1.verticalCenter
             anchors.right: parent.right
-            anchors.bottom: rectangle1.bottom
-            anchors.top: parent.top
+            //anchors.bottom: rectangle1.bottom
+            //anchors.top: parent.top
             Text {
                 x: 27
                 y: 0
@@ -88,8 +88,9 @@ Rectangle {
         Button {
             id: buttongame
             x: 40
-            y: 91
+            y: 72
             text: qsTr("New game")
+            anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
             focusPolicy: Qt.TabFocus
             //onClicked: game.newgame()
@@ -100,7 +101,7 @@ Rectangle {
         //visible: !endd
         id: rectangle2
         opacity: opac
-        //anchors.bottomMargin: 5
+        //anchors.topMargin: 20
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         width: 5 + 5 + 10 * (numberOfRows - 1) + carre * numberOfRows

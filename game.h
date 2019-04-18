@@ -59,34 +59,33 @@ public:
     Q_INVOKABLE void win();
 
 
-    qint64 give_best();
-    qint64 give_score();
-    bool give_end();
-    bool give_win();
-    QList<int> getList() const {return list;}
-    QList<QString> give_color() {return lcolor;}
-    Q_INVOKABLE void save();
-    Q_INVOKABLE void newgame();
+    qint64 give_best(); //donne le meilleur score
+    qint64 give_score(); // donne le score actuel
+    bool give_end(); // boolean pour savoir si il a perdu
+    bool give_win(); // boolean pour savoir si il a gagné
+    QList<int> getList() const {return list;} // donne la liste du jeu
+    QList<QString> give_color() {return lcolor;} // donne la liste des couleurs
+    Q_INVOKABLE void save(); // sauvegarde le jeu
+    Q_INVOKABLE void newgame(); // lance un nouveau jeu
     explicit Game(QObject *parent = 0);
     ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
     void load(); // recuperer données
     void add_score(int a); //augmente le score
     int power(int n); // calcule puissance de deux
-    int empty_case();
-    void afficher_score();
-    void afficher_data();
-    void ia();
-    void actualize();
-    void verify_right_mvt();
-    void verify_left_mvt();
-    void verify_top_mvt();
-    void verify_low_mvt();
+    int empty_case(); // donne une cases aleatoirement par rapport a toute les cases vides
+    void afficher_score(); // affiche le score
+    void afficher_data(); // affiche les données
+    void actualize(); // actualise le score et le jeu
+    void verify_right_mvt(); // verifie que le mouvement a droite est possible
+    void verify_left_mvt(); // verifie que le mouvement a gauche est possible
+    void verify_top_mvt(); // verifie que le mouvement en haut est possible
+    void verify_low_mvt(); // verifie que le mouvement en bas est possible
     int random_init();
-    void shift_right(int a);
-    void shift_left(int a);
-    void shift_top(int a);
-    void shift_low(int a);
+    void shift_right(int a); // decale les cases a droite
+    void shift_left(int a); // decale les cases a gauche
+    void shift_top(int a); // decale les cases en haut
+    void shift_low(int a); // decale les cases en bas
     void change_color();
 
 signals:
@@ -96,11 +95,12 @@ private:
 
     int score = 0; // score actuel
     int best = 0; // meilleur score
-    //bool win = true; // gagnant ?
     string begin = "DepartForm.ui.qml";
     bool win_end = false;
     bool end = false; // fin partie ?
     QList<int> list = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
+
+    /* les listes suivantes permettent de savoir si les mouvements sont possibles  */
     bool l_right[4] = {false, false, false, false};
     bool l_left[4] = {false, false, false, false};
     bool l_top[4] = {false, false, false, false};
@@ -109,9 +109,13 @@ private:
     bool l_left2[4] = {false, false, false, false};
     bool l_top2[4] = {false, false, false, false};
     bool l_low2[4] = {false, false, false, false};
+
+    /* Definition du fichier de sauvegarde et de son nom  */
     fstream data;
     string path = "data.txt";
 
+
+    /* Definition des couleurs des cases */
     QString c_0 = "#D8B758";
     QString c_2 = "#A37B08";
     QString c_4 = "#FFE833";
@@ -127,7 +131,7 @@ private:
 
     QList<QString> defcolor = {c_0, c_2, c_4, c_8, c_16, c_32, c_64, c_128, c_256, c_512, c_1024, c_2048};
 
-    QList<QString> lcolor = {c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0}; // 16 cases
+    QList<QString> lcolor = {c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0}; // Couleurs des 16 cases du jeu
 
 
 };
