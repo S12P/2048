@@ -75,6 +75,10 @@ ApplicationWindow {
                 text: qsTr("Sauvegarder")
                 onClicked:game.save();
             }
+            MenuItem {
+                text: qsTr("Changer Couleur")
+                onClicked:game.changeColor();
+            }
             MenuSeparator { }
             MenuItem {
                 text: qsTr("Quitter")

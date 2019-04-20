@@ -68,6 +68,7 @@ public:
     Q_INVOKABLE void save(); // sauvegarde le jeu
     Q_INVOKABLE void newgame(); // lance un nouveau jeu
     Q_INVOKABLE void comeBack(); // retour en arrière
+    Q_INVOKABLE void changeColor(); // Change les couleurs
     explicit Game(QObject *parent = 0);
     ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
@@ -132,10 +133,26 @@ private:
     QString c_128 = "#33FF4A";
     QString c_256 = "#B933FF";
     QString c_512 = "#3A33FF";
-    QString c_1024 = "#FF3344";
+    QString c_1024 = "#990033";
     QString c_2048 = "#FF3344";
 
-    QList<QString> defcolor = {c_0, c_2, c_4, c_8, c_16, c_32, c_64, c_128, c_256, c_512, c_1024, c_2048};
+    QString c_0_1 = "#FDFEFE";
+    QString c_2_1 = "#808080";
+    QString c_4_1 = "#800000";
+    QString c_8_1 = "#FA8072";
+    QString c_16_1 = "#33FF90";
+    QString c_32_1 = "#800080";
+    QString c_64_1 = "#FF00FF";
+    QString c_128_1 = "#AED6F1";
+    QString c_256_1 = "#008080";
+    QString c_512_1 = "#00FF00";
+    QString c_1024_1 = "#FFFF00";
+    QString c_2048_1 = "#FF0000";
+
+    QList<QString> defcolor1 = {c_0, c_2, c_4, c_8, c_16, c_32, c_64, c_128, c_256, c_512, c_1024, c_2048};
+    QList<QString> defcolor0 = {c_0_1, c_2_1, c_4_1, c_8_1, c_16_1, c_32_1, c_64_1, c_128_1, c_256_1, c_512_1, c_1024_1, c_2048_1};
+    int choice_color = 0;
+    QList<QString> defcolor = defcolor0;
 
     QList<QString> lcolor = {c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0, c_0}; // Couleurs des 16 cases du jeu
 

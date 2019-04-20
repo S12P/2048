@@ -676,6 +676,7 @@ void Game::change_color(){
         else{
             int c = int(log2(list[i]));
             lcolor[i] = defcolor[c];
+            cout << "couleur " << list[i] << " " << c <<  endl;
         }
     }
 }
@@ -694,6 +695,19 @@ void Game::copy(){
         list_old[i] = list[i];
     }
     old_score = score;
+}
+
+void Game::changeColor(){
+    if (choice_color == 0){
+        choice_color = 1;
+        defcolor = defcolor1;
+    }
+    else{
+        choice_color = 0;
+        defcolor = defcolor0;
+    }
+    change_color();
+    update();
 }
 
 
