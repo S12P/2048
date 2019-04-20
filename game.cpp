@@ -529,6 +529,7 @@ void Game::right_mvt(){
      * si on peut on prend une cases aléatoirement parmis celle qui sont vide et on y met un 2
      *
      * **********************************/
+    copy();
     lose();
     bool l1p = l_right[0];
     bool l2p = l_right[1];
@@ -551,6 +552,7 @@ void Game::right_mvt(){
 }
 
 void Game::left_mvt(){
+    copy();
     lose();
     verify_left_mvt();
     bool l1p = l_left[0];
@@ -573,6 +575,7 @@ void Game::left_mvt(){
 }
 
 void Game::top_mvt(){
+    copy();
     lose();
     verify_top_mvt();
     bool l1p = l_top[0];
@@ -595,6 +598,7 @@ void Game::top_mvt(){
 }
 
 void Game::low_mvt(){
+    copy();
     lose();
     verify_low_mvt();
     bool l1p = l_low[0];
@@ -675,4 +679,22 @@ void Game::change_color(){
         }
     }
 }
+
+void Game::comeBack(){
+    for (int i = 0; i < 16; i++){
+        list[i] = list_old[i];
+    }
+    score = old_score;
+    change_color();
+    update();
+}
+
+void Game::copy(){
+    for (int i = 0; i < 16; i++){
+        list_old[i] = list[i];
+    }
+    old_score = score;
+}
+
+
 

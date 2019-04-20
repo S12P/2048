@@ -22,6 +22,8 @@ Rectangle {
         font.pixelSize: 56
     }
 
+
+
     Rectangle {
         anchors.right: parent.right
         id: scoreBoard
@@ -85,12 +87,19 @@ Rectangle {
         }
         Button {
             id: buttongame
-            x: 40
+            x: 120
             y: 65
             text: qsTr("New game")
-            anchors.horizontalCenter: parent.horizontalCenter
             focusPolicy: Qt.TabFocus
             onClicked: game.newgame()
+        }
+        Button {
+            id: buttonB
+            x: 0
+            y: 65
+            text: qsTr("Retour \nen arrière")
+            focusPolicy: Qt.TabFocus
+            onClicked: game.comeBack()
         }
     }
 

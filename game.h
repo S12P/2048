@@ -67,6 +67,7 @@ public:
     QList<QString> give_color() {return lcolor;} // donne la liste des couleurs
     Q_INVOKABLE void save(); // sauvegarde le jeu
     Q_INVOKABLE void newgame(); // lance un nouveau jeu
+    Q_INVOKABLE void comeBack(); // retour en arrière
     explicit Game(QObject *parent = 0);
     ~Game(); // destructeur
     int random(vector<int> v); // nombre aléatoire
@@ -87,6 +88,7 @@ public:
     void shift_top(int a); // decale les cases en haut
     void shift_low(int a); // decale les cases en bas
     void change_color();
+    void copy();
 
 signals:
     void update();
@@ -94,11 +96,15 @@ signals:
 private:
 
     int score = 0; // score actuel
+    int old_score = 0; // score pour retour en arrière
     int best = 0; // meilleur score
     string begin = "DepartForm.ui.qml";
     bool win_end = false;
     bool end = false; // fin partie ?
     QList<int> list = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
+    QList<int> list_old = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // liste des valeurs des 16 cases
+
+
 
     /* les listes suivantes permettent de savoir si les mouvements sont possibles  */
     bool l_right[4] = {false, false, false, false};
